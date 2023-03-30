@@ -1,0 +1,11 @@
+server:
+  port: 23330
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/celerity?useUnicode=true&characterEncoding=utf8&useSSL=false
+  flyway:
+    locations: "classpath:db/migration"
