@@ -47,6 +47,7 @@
     <module>celerity-app</module>
     <module>celerity-common</module>
     <module>celerity-core</module>
+    <module>celerity-develop</module>
     <module>celerity-generator</module>
     <module>celerity-message</module>
     <module>celerity-module</module>

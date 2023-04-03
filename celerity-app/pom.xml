@@ -26,7 +26,6 @@
   </properties>
 
   <modules>
-    <module>celerity-app-demo</module>
     <module>celerity-app-main</module>
   </modules>
 
