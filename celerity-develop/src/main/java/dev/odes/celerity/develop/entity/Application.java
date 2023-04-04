@@ -1,10 +1,8 @@
 package dev.odes.celerity.develop.entity;
 
-public class Module {
+public class Application {
   private String id;
   private String code;
   private String name;
-  private String namespace;
-  private String directory;
-
+  private String port;
 }
