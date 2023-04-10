@@ -7,17 +7,12 @@ import dev.odes.entity.User;
 import java.util.Date;
 
 public class UserModel extends User implements Model {
-  @Override
-  public String getName() {
-    return null;
-  }
 
   @Override
   public void setDefaultValue() {
     if (this.id.isEmpty()) {
       this.id = IDUtils.getUUID();
-
     }
-    this.createdAt = new Date();
+//    this.createdAt = new Date();
   }
 }

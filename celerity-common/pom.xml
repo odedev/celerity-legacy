@@ -10,7 +10,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>dev.odes</groupId>
+<!--  <groupId>dev.odes</groupId>-->
   <artifactId>celerity-common</artifactId>
   <version>1.0.0</version>
   <name>celerity-common</name>
@@ -26,6 +26,20 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.11.0</version>
+    </dependency>
 
     <dependency>
       <groupId>com.mysql</groupId>

@@ -1,0 +1,7 @@
+package dev.odes.celerity.module.domain.${templateContext.entity.code.toLowerCase()};
+
+import dev.odes.celerity.app.core.Model;
+
+public class ${templateContext.entity.code}Model extends ${templateContext.entity.code} implements Model {
+
+}

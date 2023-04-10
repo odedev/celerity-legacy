@@ -16,7 +16,7 @@
   <version>1.0.0</version>
   <name>celerity-develop</name>
   <description>celerity develop project</description>
-  <url>https://maven.apache.org</url>
+  <url>https://odes.dev</url>
   <packaging>jar</packaging>
 
   <properties>
@@ -30,6 +30,11 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>dev.odes</groupId>
+      <artifactId>celerity-common</artifactId>
+      <version>1.0.0</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.velocity</groupId>
       <artifactId>velocity-engine-core</artifactId>

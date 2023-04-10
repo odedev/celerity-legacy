@@ -10,15 +10,15 @@ public interface Persistence<T> {
 
   public void insertOne(T t);
 
-  public void insertMany(List<T> list);
+  public void insertMany(Iterable<T> list);
 
   public void updateOne(T t);
 
-  public void updateMany(List<T> list);
+  public void updateMany(Iterable<T> list);
 
   public void deleteOne(T t);
 
-  public void deleteMany(List<T> list);
+  public void deleteMany(Iterable<T> list);
 
   public void count();
 

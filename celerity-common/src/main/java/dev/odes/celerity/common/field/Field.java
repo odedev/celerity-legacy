@@ -1,20 +1,8 @@
-package dev.odes.celerity.develop.entity;
+package dev.odes.celerity.common.field;
 
 import dev.odes.celerity.common.enumeration.DataTypeEnum;
-import dev.odes.celerity.common.field.Field;
 
-public class EntityField extends Field {
-
-  /**
-   * 主键ID
-   * type: uuid
-   */
-  private String id;
-
-  /**
-   * 实体ID
-   */
-  private String entity;
+public class Field {
 
   /**
    * 编码
@@ -45,7 +33,7 @@ public class EntityField extends Field {
 
   /**
    * 是否可搜索
-   * default: false
+   * default: true
    */
   private Boolean isSearchable;
 
@@ -56,8 +44,8 @@ public class EntityField extends Field {
   private Boolean isHidden;
 
   /**
-   * 是否默认显示
-   * default: true
+   * 是否默认显示, 只能有一个字段为 true
+   * default: false
    */
   private Boolean isDefaultDisplay;
 
@@ -72,6 +60,18 @@ public class EntityField extends Field {
    * default: false
    */
   private Boolean isParentField;
+
+  /**
+   * 是否主实体字段, 只能有一个字段为 true, 主从关系使用
+   * default: false
+   */
+  private Boolean isMasterField;
+
+  /**
+   * 是否从实体字段, 主从关系使用
+   * default: false
+   */
+  private Boolean isSlaveField;
 
   /**
    * 数据类型
@@ -109,5 +109,6 @@ public class EntityField extends Field {
    */
   private String referenceEntityField;
 
-
+  public Field() {
+  }
 }

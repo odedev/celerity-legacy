@@ -11,4 +11,5 @@ public class Configuration {
   private String serverPort;
   private String serverUsername;
   private String serverPassword;
+  private Boolean isPreset;
 }

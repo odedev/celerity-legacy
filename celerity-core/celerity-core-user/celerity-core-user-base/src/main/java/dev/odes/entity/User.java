@@ -1,11 +1,12 @@
 package dev.odes.entity;
 
 import dev.odes.celerity.common.entity.AbstractEntity;
+import dev.odes.celerity.common.model.Model;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class User extends AbstractEntity {
+public class User extends AbstractEntity implements Model {
   protected String id;
 
   @NotBlank(message = "")
@@ -16,9 +17,4 @@ public class User extends AbstractEntity {
   private String email;
   private String phone;
 
-
-  @Override
-  public String getName() {
-    return null;
-  }
 }
