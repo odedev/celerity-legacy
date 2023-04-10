@@ -20,6 +20,10 @@ public interface Persistence<T> {
 
   public void deleteMany(Iterable<T> list);
 
+  public void removeOne(T t);
+
+  public void removeMany(Iterable<T> list);
+
   public void count();
 
   public void exist();

@@ -2,6 +2,7 @@ package dev.odes.celerity.common.model;
 
 public interface Model {
   default void setDefaultValue() {}
+  default void setGenericValue() {}
   default void validate() {}
 //  default void beforeFind(String where, String order) {}
 //  default void found() {}
