@@ -27,6 +27,7 @@
 
   <modules>
     <module>celerity-core-auth</module>
+    <module>celerity-core-develop</module>
     <module>celerity-core-system</module>
     <module>celerity-core-user</module>
   </modules>
