@@ -4,9 +4,9 @@ import java.io.File;
 
 public class TemplateConstant {
   public static final String ROOT_PATH = "src"+ File.separator + "main" + File.separator + "java";
-  public static final String DOMAIN_PATH = "dev" + File.separator + "odes" + File.separator + "celerity" + File.separator + "app" + File.separator + "domain";
-  public static final String ROOT_PACKAGE = "dev.odes.celerity.app";
-  public static final String DOMAIN_PACKAGE = "dev.odes.celerity.app.domain";
+  public static final String DOMAIN_PATH = "dev" + File.separator + "odes" + File.separator + "celerity" + File.separator + "module" + File.separator + "domain";
+  public static final String ROOT_PACKAGE = "dev.odes.celerity.module";
+  public static final String DOMAIN_PACKAGE = "dev.odes.celerity.module.domain";
   public static final String TEMPLATE_DIR = "template";
 
   public static final String TARGET_ENTITY = ".java";

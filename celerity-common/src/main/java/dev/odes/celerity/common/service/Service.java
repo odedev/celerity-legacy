@@ -1,4 +1,9 @@
 package dev.odes.celerity.common.service;
 
-public interface Service {
+import java.util.List;
+
+public interface Service<T> {
+
+  List<T> findPage();
+
 }

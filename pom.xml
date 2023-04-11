@@ -33,7 +33,7 @@
   <version>1.0.0</version>
   <name>celerity</name>
   <description>celerity project</description>
-  <url>https://maven.apache.org</url>
+  <url>https://odes.dev</url>
   <packaging>pom</packaging>
 
   <properties>

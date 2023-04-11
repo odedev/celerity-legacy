@@ -5,16 +5,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>dev.odes</groupId>
-    <artifactId>celerity</artifactId>
+    <artifactId>celerity-storage</artifactId>
     <version>1.0.0</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
 <!--  <groupId>dev.odes</groupId>-->
-  <artifactId>celerity-common</artifactId>
+  <artifactId>celerity-storage-mongodb</artifactId>
   <version>1.0.0</version>
-  <name>celerity-common</name>
-  <description>Celerity common project</description>
+  <name>celerity-storage-mongodb</name>
+  <description>celerity storage mongodb project</description>
   <url>https://odes.dev</url>
   <packaging>jar</packaging>
 
@@ -27,30 +27,13 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-validation</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-codec</groupId>
-      <artifactId>commons-codec</artifactId>
-      <version>1.15</version>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
     <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.11.0</version>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongodb-driver-sync</artifactId>
+      <version>4.9.0</version>
     </dependency>
-
-    <dependency>
-      <groupId>com.squareup.okhttp3</groupId>
-      <artifactId>okhttp</artifactId>
-      <version>3.12.0</version>
-    </dependency>
-
   </dependencies>
 </project>

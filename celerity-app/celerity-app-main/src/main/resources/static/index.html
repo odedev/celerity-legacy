@@ -3,8 +3,797 @@
 <head>
   <meta charset="UTF-8">
   <title>Index</title>
+  <style>
+    :root {
+      --height-header: 64px;
+      --height-tab: 48px;
+      --height-page-head: 60px;
+      --height-page-foot: 60px;
+
+      --height-button: 28px;
+
+      --width-logo: 208px;
+      --width-menu: 208px;
+      --width-aside: 20px;
+
+      --padding-normal: 16px;
+      --padding-button: 12px;
+
+      --text-size: 14px;
+
+    }
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    *::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    /* 滚动条的滑轨背景颜色 */
+    /* ::-webkit-scrollbar-track {
+      background-color: #b46868;
+    } */
+    /* 滑轨两头的监听按钮颜色 */
+    *::-webkit-scrollbar-button {
+      width: 0px;
+      height: 0px;
+      background-color: #dddddd;
+    }
+    *::-webkit-resizer {
+      background-color: #13c2c2;
+    }
+    /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+    *::-webkit-scrollbar-corner {
+      background-color: #efdbff;
+    }
+    /* 滑块颜色 */
+    *::-webkit-scrollbar-thumb {
+      border-width: 2px;
+      border-radius: 4px;
+      border-style: dashed;
+      border-color: transparent;
+      background-color: rgba(0, 0, 0, 0.2);
+      background-clip: padding-box;
+    }
+    *::-webkit-scrollbar-thumb:hover {
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.24);
+    }
+    html {
+      width: 100%;
+      height: 100%;
+      font-size: 16px;
+    }
+    body {
+      width: 100%;
+      height: 100%;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    #root {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      width: 100%;
+      height: var(--height-header);
+      padding: 0 16px 0 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: var(--height-header);
+      font-size: 16px;
+      line-height: 1.5;
+      color: #ffffff;
+      background-color: #13c2c2;
+    }
+    .header .logo {
+      width: 208px;
+      padding: 0 16px;
+    }
+    #app {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+    .menu {
+      --menu-width: 208px;
+      width: var(--menu-width);
+      height: 100%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: var(--menu-width);
+      padding: 16px;
+      border-right: 1px solid #f5f5f5;
+    }
+
+    .main {
+      width: 100%;
+      height: 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .tab {
+      height: 48px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      /*border-top: 1px solid #f5f5f5;*/
+      font-size: 12px;
+      padding: 0 8px;
+    }
+    .tab-list {
+      height: inherit;
+      list-style: none;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .tab-item {
+      height: inherit;
+      line-height: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 8px;
+      border-right: 1px solid #f5f5f5;
+      vertical-align: middle;
+    }
+    .tab-item del {
+      margin-left: 8px;
+      height: 16px;
+      line-height: 1;
+    }
+
+    .view {
+      height: 100%;
+      width: 100%;
+      padding: 16px;
+      background-color: #f5f5f5;
+      background-color: #F8F8F8;
+      overflow: hidden;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      background-color: #FFFFFF;
+    }
+
+    .page-head {
+      height: 60px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 60px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 16px;
+      /* border-bottom: 1px solid #f0f0f0; */
+
+    }
+    .page-body {
+      height: 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto;
+      overflow: auto;
+      padding: 0;
+      padding: 0 16px;
+    }
+    .page-foot {
+      height: 60px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 60px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0 16px;
+      /* border-top: 1px solid #f0f0f0; */
+    }
+
+    button {
+      display: inline-block;
+      height: 28px;
+      padding: 0 12px;
+      margin-left: 8px;
+    }
+    button:first-child {
+      margin-left: 0;
+    }
+
+    input {
+      display: inline-block;
+      height: 22px;
+      padding: 0 4px;
+      font-size: 14px;
+      line-height: 1;
+    }
+    .input {
+      height: 22px;
+      font-size: 14px;
+      font-size: 16px;
+      height: 32px;
+      line-height: 1;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+      padding: 8px 16px;
+    }
+  </style>
 </head>
 <body>
-Index
+<div id="root">
+  <header class="header">
+    <div class="logo">LOGO</div>
+    <menu>
+
+    </menu>
+    <div>Name</div>
+  </header>
+  <div id="app" class="app">
+    <menu class="menu">Menu</menu>
+    <main class="main">
+
+      <div class="tab">
+        <nav>
+          <i class="fold">
+            <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 10.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 19.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 28.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 37.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 19L8 24L16 29V19Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+            </svg>
+          </i>
+          <i class="unfold">
+            <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 10.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 19.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 28.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 37.5H40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 19L16 24L8 29V19Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+            </svg>
+          </i>
+        </nav>
+        <ol class="tab-list">
+          <li class="tab-item">
+            <span>工作台</span>
+            <del>
+              <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 14L34 34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 34L34 14" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </del>
+          </li>
+          <li class="tab-item">
+            <span>工作台</span>
+            <del>X</del>
+          </li>
+        </ol>
+      </div>
+      <div class="view">
+        <div class="page">
+          <div class="page-head">
+            <button>列表</button><button>保存</button>
+          </div>
+          <div class="page-body">
+            <section>
+              <div>
+                ### 以`rem` 为单位时 html 标签的 `font-size` 最小值
+                * Chrome 的最小值为 `0px`
+                * Android webview 的最小值为`8px`
+
+                ### 元素 `font-size` 的最小值
+                * Chrome 的最小值为 `12px`
+              </div>
+            </section>
+            <section>
+              <input type="text">
+              <input class="input" type="text">
+
+            </section>
+            <section>
+              <h3>
+                <div>标题</div>
+                <div>setting</div>
+              </h3>
+              <table>
+                <thead>
+                <tr>
+                  <th>
+                    <i class="pound">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36 17L12 17" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M36 31L12 31" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M17 36L17 12" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M31 36L31 12" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                      </svg>
+                    </i>
+                  </th>
+                  <th>name</th>
+                  <th>
+
+                    code
+                  </th>
+                  <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <i>
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M19 10C19 12.2091 17.2091 14 15 14C12.7909 14 11 12.2091 11 10C11 7.79086 12.7909 6 15 6C17.2091 6 19 7.79086 19 10ZM15 28C17.2091 28 19 26.2091 19 24C19 21.7909 17.2091 20 15 20C12.7909 20 11 21.7909 11 24C11 26.2091 12.7909 28 15 28ZM15 42C17.2091 42 19 40.2091 19 38C19 35.7909 17.2091 34 15 34C12.7909 34 11 35.7909 11 38C11 40.2091 12.7909 42 15 42Z" fill="#333"/><path fill-rule="evenodd" clip-rule="evenodd" d="M37 10C37 12.2091 35.2091 14 33 14C30.7909 14 29 12.2091 29 10C29 7.79086 30.7909 6 33 6C35.2091 6 37 7.79086 37 10ZM33 28C35.2091 28 37 26.2091 37 24C37 21.7909 35.2091 20 33 20C30.7909 20 29 21.7909 29 24C29 26.2091 30.7909 28 33 28ZM33 42C35.2091 42 37 40.2091 37 38C37 35.7909 35.2091 34 33 34C30.7909 34 29 35.7909 29 38C29 40.2091 30.7909 42 33 42Z" fill="#333"/>
+                      </svg>
+                    </i>
+                  </td>
+                  <td>姓名</td>
+                  <td>编码</td>
+                  <td>
+                    <i class="reduce">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="6" width="36" height="36" rx="3" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M16 24L32 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+
+                    <i class="add">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="6" width="36" height="36" rx="3" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M24 16V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 24L32 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+
+                    <i class="add">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 32L24 16" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M42 27L42 21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 27L6 21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 6H8C6.89543 6 6 6.89543 6 8V14" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M34 6H40C41.1046 6 42 6.89543 42 8V14" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M34 42H40C41.1046 42 42 41.1046 42 40V34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 42H8C6.89543 42 6 41.1046 6 40V34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M27 6H21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M32 24L16 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M27 42H21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+
+
+                    <i class="edit">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M42 26V40C42 41.1046 41.1046 42 40 42H8C6.89543 42 6 41.1046 6 40V8C6 6.89543 6.89543 6 8 6L22 6" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 26.7199V34H21.3172L42 13.3081L34.6951 6L14 26.7199Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+                    <i class="edit">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 42H43" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11 26.7199V34H18.3172L39 13.3081L31.6951 6L11 26.7199Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+
+                    <i class="reduce">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M16 24L32 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+                    <i class="add">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M24 16V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 24L32 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+                    <i class="delete">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10V44H39V10H9Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M20 20V33" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M28 20V33" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 10H44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 10L19.289 4H28.7771L32 10H16Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+                    <i class="copy">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 12.4316V7.8125C13 6.2592 14.2592 5 15.8125 5H40.1875C41.7408 5 43 6.2592 43 7.8125V32.1875C43 33.7408 41.7408 35 40.1875 35H35.5163" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M32.1875 13H7.8125C6.2592 13 5 14.2592 5 15.8125V40.1875C5 41.7408 6.2592 43 7.8125 43H32.1875C33.7408 43 35 41.7408 35 40.1875V15.8125C35 14.2592 33.7408 13 32.1875 13Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+
+                    <i class="new">
+                      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 10V7C19 5.89543 19.8954 5 21 5H41C42.1046 5 43 5.89543 43 7V29C43 30.1046 42.1046 31 41 31H37" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="5" y="18" width="24" height="24" rx="2" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17 25V35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 30H22" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </i>
+
+                  </td>
+                </tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+              <div>
+                <i class="filter">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9L20.4 25.8178V38.4444L27.6 42V25.8178L42 9H6Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="upload">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.6777 20.271C7.27476 21.3181 4 25.2766 4 30C4 35.5228 8.47715 40 14 40C14.9474 40 15.864 39.8683 16.7325 39.6221" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36.0547 20.271C40.4577 21.3181 43.7324 25.2766 43.7324 30C43.7324 35.5228 39.2553 40 33.7324 40C32.785 40 31.8684 39.8683 30.9999 39.6221" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36 20C36 13.3726 30.6274 8 24 8C17.3726 8 12 13.3726 12 20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.0654 27.8812L23.9999 20.9238L31.1318 28.0002" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 38.0001V24.4619" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="upload">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M32 28L24 20L16 28" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 36V20.5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 14H32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="upload">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="icon-1a48b27d7f10b972" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48" style="mask-type: alpha">
+                      <path d="M48 0H0V48H48V0Z" fill="#333"/>
+                    </mask>
+                    <g mask="url(#icon-1a48b27d7f10b972)">
+                      <path d="M6 24.0083V42H42V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M33 15L24 6L15 15" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M23.9917 32V6" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                  </svg>
+                </i>
+                <i class="download">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.6777 20.271C7.27476 21.3181 4 25.2766 4 30C4 35.5228 8.47715 40 14 40C14.9474 40 15.864 39.8683 16.7325 39.6221" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36.0547 20.271C40.4577 21.3181 43.7324 25.2766 43.7324 30C43.7324 35.5228 39.2553 40 33.7324 40C32.785 40 31.8684 39.8683 30.9999 39.6221" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36 20C36 13.3726 30.6274 8 24 8C17.3726 8 12 13.3726 12 20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.0654 30.119L23.9999 37.0764L31.1318 30" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 20V33.5382" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="download">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M32 28L24 36L16 28" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 20V35.5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 14H32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="download">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 24.0083V42H42V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33 23L24 32L15 23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23.9917 6V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="efferent">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V29" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M42 19L38 7L26 11" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38 7C33 22 30 25 20 29" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="afferent">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V29" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 17L22 29L34 25" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 29C27 14 30 11 40 7" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="start">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34 36L22 24L34 12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 12V36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="end">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 12L26 24L14 36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M34 12V36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="pre">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M31 36L19 24L31 12" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="next">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12L31 24L19 36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="tookkit">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 25V38C8 39.6569 9.34315 41 11 41H37C38.6569 41 40 39.6569 40 38V25" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 15C5 13.8954 5.89543 13 7 13H41C42.1046 13 43 13.8954 43 15V23C43 24.1046 42.1046 25 41 25H7C5.89543 25 5 24.1046 5 23V15Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M31 13V9C31 7.89543 30.1046 7 29 7H19C17.8954 7 17 7.89543 17 9V13" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 23V29" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33 23V29" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+              </div>
+            </section>
+            <section>
+              <div>
+                <i class="help">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M24 28.625V24.625C27.3137 24.625 30 21.9387 30 18.625C30 15.3113 27.3137 12.625 24 12.625C20.6863 12.625 18 15.3113 18 18.625" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 37.625C25.3807 37.625 26.5 36.5057 26.5 35.125C26.5 33.7443 25.3807 32.625 24 32.625C22.6193 32.625 21.5 33.7443 21.5 35.125C21.5 36.5057 22.6193 37.625 24 37.625Z" fill="#333"/>
+                  </svg>
+                </i>
+                <i class="tip">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 20C40 26.8077 35.7484 32.6224 29.7555 34.9336H24H18.2445C12.2516 32.6224 8 26.8077 8 20C8 11.1634 15.1634 4 24 4C32.8366 4 40 11.1634 40 20Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M29.7557 34.9336L29.0766 43.0831C29.0334 43.6014 28.6001 44 28.08 44H19.9203C19.4002 44 18.9669 43.6014 18.9238 43.0831L18.2446 34.9336" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 17V23L24 20L30 23V17" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="text">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="36" height="36" rx="3" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M16 19V16H32V19" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 34H26" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 18L24 34" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="number">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 8C5 6.34315 6.34315 5 8 5H40C41.6569 5 43 6.34315 43 8V40C43 41.6569 41.6569 43 40 43H8C6.34315 43 5 41.6569 5 40V8Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36 12L12 36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16H20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M27 33H35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 12V20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="find">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 7H44" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M4 23H15" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M4 39H15" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M31.5 34C36.1944 34 40 30.1944 40 25.5C40 20.8056 36.1944 17 31.5 17C26.8056 17 23 20.8056 23 25.5C23 30.1944 26.8056 34 31.5 34Z" fill="none" stroke="#333" stroke-width="4"/>
+                    <path d="M37 32L44 39.0505" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                  </svg>
+                </i>
+                <i class="list checkbox">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 24H44H20Z" fill="none"/>
+                    <path d="M20 24H44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 38H44H20Z" fill="none"/>
+                    <path d="M20 38H44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10H44H20Z" fill="none"/>
+                    <path d="M20 10H44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="4" y="34" width="8" height="8" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <rect x="4" y="20" width="8" height="8" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <rect x="4" y="6" width="8" height="8" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="list radio">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 42C11.2091 42 13 40.2091 13 38C13 35.7909 11.2091 34 9 34C6.79086 34 5 35.7909 5 38C5 40.2091 6.79086 42 9 42Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M9 14C11.2091 14 13 12.2092 13 10C13 7.79086 11.2091 6 9 6C6.79086 6 5 7.79086 5 10C5 12.2092 6.79086 14 9 14Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M9 28C11.2091 28 13 26.2092 13 24C13 21.7908 11.2091 20 9 20C6.79086 20 5 21.7908 5 24C5 26.2092 6.79086 28 9 28Z" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M21 24H43" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 38H43" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 10H43" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="date">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="40" height="40" rx="2" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 14H44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="44" y1="11" x2="44" y2="23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22H16" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 22H26" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 22H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 29H16" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 29H26" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 29H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 36H16" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 36H26" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 36H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="4" y1="11" x2="4" y2="23" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="link">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 19H20C15.5817 19 12 22.5817 12 27C12 31.4183 15.5817 35 20 35H36C40.4183 35 44 31.4183 44 27C44 24.9711 43.2447 23.1186 42 21.7084" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 24.2916C4.75527 22.8814 4 21.0289 4 19C4 14.5817 7.58172 11 12 11H28C32.4183 11 36 14.5817 36 19C36 23.4183 32.4183 27 28 27H18" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="platte">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 44C29.9601 44 26.3359 35.136 30 31C33.1264 27.4709 44 29.0856 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M28 17C29.6569 17 31 15.6569 31 14C31 12.3431 29.6569 11 28 11C26.3431 11 25 12.3431 25 14C25 15.6569 26.3431 17 28 17Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M16 21C17.6569 21 19 19.6569 19 18C19 16.3431 17.6569 15 16 15C14.3431 15 13 16.3431 13 18C13 19.6569 14.3431 21 16 21Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M17 34C18.6569 34 20 32.6569 20 31C20 29.3431 18.6569 28 17 28C15.3431 28 14 29.3431 14 31C14 32.6569 15.3431 34 17 34Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="tree">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38 20H18V28H38V20Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M32 6H18V14H32V6Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M44 34H18V42H44V34Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M17 10H5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 24H5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 38H5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 44V4" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="picture">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 23C20.7614 23 23 20.7614 23 18C23 15.2386 20.7614 13 18 13C15.2386 13 13 15.2386 13 18C13 20.7614 15.2386 23 18 23Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M42 36L31 26L21 35L14 29L6 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="video">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.5 28V21.9378L25.75 24.9689L31 28L25.75 31.0311L20.5 34.0622V28Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 15H42" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33 6L27 15" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 6L15 15" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="word">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="36" height="36" rx="3" fill="none" stroke="#333" stroke-width="4"/>
+                    <path d="M14 16L18 32L24 19L30 32L34 16" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="ppt">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="36" height="36" rx="3" fill="none" stroke="#333" stroke-width="4"/>
+                    <rect x="19" y="15" width="10" height="10" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 33L19 15" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                  </svg>
+                </i>
+                <i class="zip">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.62861 12.7486L24 5L43.3714 12.7486C43.751 12.9004 44 13.2681 44 13.677V42C44 42.5523 43.5523 43 43 43H5C4.44772 43 4 42.5523 4 42V13.677C4 13.2681 4.24895 12.9004 4.62861 12.7486Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M24 22V32" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M33 27C34.6569 27 36 25.8807 36 24.5C36 23.1193 34.6569 22 33 22C32.1 22 31.2 22 30.3 22C30.1343 22 30 22.1343 30 22.3C30 23.0333 30 23.7667 30 24.5C30 25.8807 31.3431 27 33 27Z" stroke="#333" stroke-width="4"/>
+                    <path d="M30 22V32" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M12 22H18.0046L12 31.9993H18.0046" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="file add">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 44H38C39.1046 44 40 43.1046 40 42V14H30V4H10C8.89543 4 8 4.89543 8 6V42C8 43.1046 8.89543 44 10 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30 4L40 14" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 21V35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 28H24L31 28" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="file pdf">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 38V44H38V38" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38 20V14L30 4H10V20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 4V14H38" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="4" y="20" width="40" height="18" rx="2" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M21 25V33" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M10 25V33" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M32 33V25H37" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 30H37" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 25H13.5C14.8807 25 16 26.1193 16 27.5V27.5C16 28.8807 14.8807 30 13.5 30H10" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 25H23C25.2091 25 27 26.7909 27 29V29C27 31.2091 25.2091 33 23 33H21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 12H20" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                  </svg>
+                </i>
+                <i class="excel">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="36" height="36" rx="3" fill="none" stroke="#333" stroke-width="4"/>
+                    <path d="M30 16H18" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M18 32L18 16" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M28 24H18" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M30 32H18" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                  </svg>
+                </i>
+
+                <i class="scan">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 6H8C6.89543 6 6 6.89543 6 8V16" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 42H8C6.89543 42 6 41.1046 6 40V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 42H40C41.1046 42 42 41.1046 42 40V32" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 6H40C41.1046 6 42 6.89543 42 8V16" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M34 24L14 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M27 16H21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M27 32H21" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+              </div>
+              <div>
+                <i class="search">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M26.657 14.3431C25.2093 12.8954 23.2093 12 21.0001 12C18.791 12 16.791 12.8954 15.3433 14.3431" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M33.2216 33.2217L41.7069 41.707" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+              </div>
+              <div>
+                <i class="me">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 23C26.7614 23 29 20.7614 29 18C29 15.2386 26.7614 13 24 13C21.2386 13 19 15.2386 19 18C19 20.7614 21.2386 23 24 23Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M10.022 38.332C10.3657 33.1206 14.7016 29 20 29H28C33.2914 29 37.6229 33.1097 37.9767 38.3113" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                <i class="power">
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.5 8C13.8406 8.37652 13.2062 8.79103 12.6 9.24051C11.5625 10.0097 10.6074 10.8814 9.75 11.8402C6.79377 15.1463 5 19.4891 5 24.2455C5 34.6033 13.5066 43 24 43C34.4934 43 43 34.6033 43 24.2455C43 19.4891 41.2062 15.1463 38.25 11.8402C37.3926 10.8814 36.4375 10.0097 35.4 9.24051C34.7938 8.79103 34.1594 8.37652 33.5 8" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 4V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+              </div>
+            </section>
+
+            <section>
+              <table>
+                <caption>表格标题</caption>
+                <thead>
+                <tr>
+                  <th>name</th>
+                  <th>code</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>姓名</td>
+                  <td>编码</td>
+                </tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+            </section>
+          </div>
+          <div class="page-foot">
+            <button>构建</button><button>部署</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
 </body>
 </html>
