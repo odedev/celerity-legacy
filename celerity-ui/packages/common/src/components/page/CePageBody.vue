@@ -1,19 +1,17 @@
 <template>
-  <main id="main">
-    <slot></slot>
-  </main>
+<div class="page-body">
+<slot></slot>
+</div>
 </template>
 <script setup>
-
 </script>
 <style lang="scss">
-#main {
-  width: 100%;
+.page-body {
   height: 100%;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
-  display: flex;
-  flex-direction: column;
+  overflow: auto;
+  padding: 0;
 }
 </style>

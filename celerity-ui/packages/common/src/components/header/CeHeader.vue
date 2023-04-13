@@ -8,7 +8,7 @@
 </script>
 <style>
 .header {
-  --header-height: 48px;
+  --header-height: 64px;
   width: 100%;
   height: var(--header-height);
   padding: 0 16px 0 0;

@@ -15,6 +15,6 @@
   flex-shrink: 0;
   flex-basis: var(--menu-width);
   padding: 16px;
-  border-right: 1px solid #f5f5f5;
+  /* border-right: 1px solid #f5f5f5; */
 }
 </style>
