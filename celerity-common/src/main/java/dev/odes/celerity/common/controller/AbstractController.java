@@ -14,8 +14,8 @@ public abstract class AbstractController {
     return null;
   }
 
-  @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public Object insert(@RequestBody Object param) {
+  @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public Object insert(@PathVariable String id, @RequestBody Object param) {
 
     return null;
   }
