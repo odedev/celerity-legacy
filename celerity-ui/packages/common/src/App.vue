@@ -45,7 +45,39 @@
               </svg>
               </i>
             </CeContent>
-          </CePageBody>
+            <CeContent>
+              <div style="display: flex;flex-direction: column;width: max-content;border: 1px solid #f5f5f5;">
+                <div style="display: flex;width: 100%;height: 36px; padding-bottom: 8px; justify-content: space-between;align-items: flex-end;background-color: aliceblue;">
+                  <h3 class="title" style="padding-right: 48px;">标题</h3>
+                  <div>
+                    <button>列表</button><button>保存</button>
+                  </div>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>name</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1212</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr><td>1212</td></tr>
+                  </tfoot>
+                </table>
+                <div style="display: flex;width: 100%;height: 32px;justify-content: space-between;align-items: center; background-color: aliceblue;">
+                  <div>过滤</div>
+                  <div>
+                    page
+                  </div>
+                </div>
+              </div>
+
+            </CeContent>
+            </CePageBody>
         </CePageMain>
       </CePage>
     </CeView>
@@ -64,5 +96,11 @@ import {CeRoot, CeHeader, CeLogo, CeMenu, CeMain, CeNav, CeTab, CeView, CePage, 
     }
     button:first-child {
       margin-left: 0;
+    }
+
+    .title {
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 500;
     }
 </style>

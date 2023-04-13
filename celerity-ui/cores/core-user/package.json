@@ -1,5 +1,5 @@
 {
-  "name": "component",
+  "name": "core-user",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,6 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@ant-design/icons-vue": "^6.1.0",
-    "@surely-vue/table": "^3.0.3",
-    "ant-design-vue": "^3.2.17",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"

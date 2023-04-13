@@ -26,6 +26,7 @@
   </properties>
 
   <modules>
+    <module>celerity-storage-clickhouse</module>
     <module>celerity-storage-couchbase</module>
     <module>celerity-storage-minio</module>
     <module>celerity-storage-mongodb</module>

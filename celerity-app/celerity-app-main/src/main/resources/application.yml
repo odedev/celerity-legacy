@@ -13,3 +13,14 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/celerity?useUnicode=true&characterEncoding=utf8&useSSL=false
   flyway:
     locations: "classpath:db/migration"
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml, classpath*:/mapper/*.xml
+  #  config-location: classpath:mybatis/mybatis-config.xml
+  #  type-aliases-package: dev.odes.demo.user
+  #  type-handlers-package: dev.odes.persist.typehandler
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 300
+    cache-enabled: false
