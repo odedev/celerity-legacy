@@ -122,6 +122,7 @@ dist-ssr
 coverage
 *.local
 site/
+cache/
 
 # data
 # data/

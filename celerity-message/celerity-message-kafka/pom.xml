@@ -5,16 +5,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>dev.odes</groupId>
-    <artifactId>celerity</artifactId>
+    <artifactId>celerity-message</artifactId>
     <version>1.0.0</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
 <!--  <groupId>dev.odes</groupId>-->
-  <artifactId>celerity-message</artifactId>
+  <artifactId>celerity-message-kafka</artifactId>
   <version>1.0.0</version>
-  <name>celerity-message</name>
-  <description>celerity message project</description>
+  <name>celerity-message-kafka</name>
+  <description>celerity message kafka project</description>
   <url>https://odes.dev</url>
   <packaging>jar</packaging>
 
@@ -24,11 +24,6 @@
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-  <modules>
-    <module>celerity-message-kafka</module>
-    <module>celerity-message-rabbitmq</module>
-  </modules>
 
   <dependencies>
 

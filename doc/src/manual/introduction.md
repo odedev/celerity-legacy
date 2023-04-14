@@ -2,7 +2,7 @@
 
 
 ## structure
-```text
+```txt
 .
 ├── celerity-app
 │   └── celerity-app-main
@@ -16,8 +16,8 @@
 │   └── celerity-core-user
 │
 ├── celerity-message
-│   ├── celerity-core-auth
-│   └── celerity-core-user
+│   ├── celerity-message-kafka
+│   └── celerity-message-rabbitmq
 │
 ├── celerity-module
 │   ├── celerity-module-test
