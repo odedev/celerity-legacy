@@ -5,6 +5,7 @@
 ```txt
 .
 ├── celerity-app
+│   ├── ...
 │   └── celerity-app-main
 │
 ├── celerity-common
@@ -20,6 +21,7 @@
 │   └── celerity-message-rabbitmq
 │
 ├── celerity-module
+│   ├── ...
 │   ├── celerity-module-test
 │   └── celerity-module-demo
 │
