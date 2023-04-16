@@ -123,6 +123,7 @@ coverage
 *.local
 site/
 cache/
+workspace/
 
 # data
 # data/

@@ -13,3 +13,8 @@ spring:
       enabled: true
       settings:
         web-allow-others: true
+  devtools:
+    restart:
+      poll-interval: "2s"
+      quiet-period: "1s"
+      exclude: "static/**,public/**"

@@ -24,3 +24,7 @@ mybatis:
     default-fetch-size: 100
     default-statement-timeout: 300
     cache-enabled: false
+
+logging:
+  file:
+    path: "./logs"
