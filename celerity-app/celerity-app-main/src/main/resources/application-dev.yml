@@ -3,7 +3,7 @@ spring:
     username: root
     password: 123456
     driverClassName: org.h2.Driver
-    url: jdbc:h2:file:./celerity
+    url: jdbc:h2:file:./celerity;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS \"PUBLIC\";
   sql:
     init:
       platform: h2

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan({"dev.odes.celerity.core.*"})
+@MapperScan(basePackages = {"dev.odes.celerity.core.*"})
 @ComponentScan(basePackages = {"dev.odes.celerity.core.*"})
 public class CelerityAppMainApplication {
 
