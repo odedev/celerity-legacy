@@ -52,11 +52,11 @@ public class ResponseData {
     this.code = code;
   }
 
-  public Boolean getOk() {
+  public Boolean getIsOk() {
     return isOk;
   }
 
-  public void setOk(Boolean ok) {
+  public void setIsOk(Boolean ok) {
     isOk = ok;
   }
 }

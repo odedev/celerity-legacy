@@ -9,7 +9,8 @@
     <version>1.0.0</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-  <groupId>dev.odes</groupId>
+
+<!--  <groupId>dev.odes</groupId>-->
   <artifactId>celerity-core-user</artifactId>
   <version>1.0.0</version>
   <name>celerity-core-user</name>
@@ -26,10 +27,16 @@
 
   <modules>
     <module>celerity-core-user-app</module>
-    <module>celerity-core-user-base</module>
+    <module>celerity-core-user-domain</module>
   </modules>
 
   <dependencies>
 
+    <dependency>
+      <groupId>dev.odes</groupId>
+      <artifactId>celerity-common</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 </project>

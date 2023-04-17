@@ -19,7 +19,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <dependencies>
+  <modules>
+    <module>celerity-core-system-app</module>
+    <module>celerity-core-system-domain</module>
+  </modules>
 
+  <dependencies>
+    <dependency>
+      <groupId>dev.odes</groupId>
+      <artifactId>celerity-common</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 </project>

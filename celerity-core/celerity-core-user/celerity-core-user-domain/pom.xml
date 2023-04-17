@@ -1,43 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>dev.odes</groupId>
-    <artifactId>celerity</artifactId>
+    <artifactId>celerity-core-user</artifactId>
     <version>1.0.0</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-
-<!--  <groupId>dev.odes</groupId>-->
-  <artifactId>celerity-core-metadata</artifactId>
+  <groupId>dev.odes</groupId>
+  <artifactId>celerity-core-user-domain</artifactId>
   <version>1.0.0</version>
-  <name>celerity-metadata</name>
-  <description>celerity metadata project</description>
+  <name>celerity-core-user-domain</name>
+  <description>celerity core user domain</description>
   <url>https://odes.dev</url>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>17</java.version>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-
-    <velocity.engine.version>2.3</velocity.engine.version>
-    <velocity.tools.version>3.1</velocity.tools.version>
-
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <modules>
-    <module>celerity-core-metadata-app</module>
-    <module>celerity-core-metadata-domain</module>
-  </modules>
 
   <dependencies>
+
+
     <dependency>
-      <groupId>dev.odes</groupId>
-      <artifactId>celerity-common</artifactId>
-      <version>1.0.0</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
   </dependencies>
 </project>
