@@ -1,6 +1,6 @@
 package dev.odes.celerity.common.enumeration;
 
-public enum PersistenceType {
+public enum PersistenceTypeEnum {
   MySQL,
   Mongo,
   SqLite,

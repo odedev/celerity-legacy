@@ -29,6 +29,7 @@
     <module>celerity-core-auth</module>
     <module>celerity-core-client</module>
     <module>celerity-core-develop</module>
+    <module>celerity-core-metadata</module>
     <module>celerity-core-system</module>
     <module>celerity-core-user</module>
   </modules>
@@ -37,6 +38,11 @@
     <dependency>
       <groupId>dev.odes</groupId>
       <artifactId>celerity-common</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>dev.odes</groupId>
+      <artifactId>celerity-storage-mysql</artifactId>
       <version>1.0.0</version>
     </dependency>
   </dependencies>

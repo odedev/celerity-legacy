@@ -6,10 +6,10 @@ import java.util.List;
 public interface Repository<T> {
   public T findOne(String condition);
   public List<T> findMany(String where, String order);
+  public List<T> findTree(String where, String order);
   public List<T> findAll(String order);
 
   public T findOneById(String id);
-
   public T findManyById(Iterable<String> ids);
 
   public T insertOne(T t);
@@ -30,5 +30,9 @@ public interface Repository<T> {
   default void setDefaultValue(Iterable<T> list) {}
   default void validate(T t) {}
   default void validate(Iterable<T> list) {}
+
+  default void beforeInsert(T t) {}
+  default void beforeInsert(Iterable<T> list) {}
+  default void inserted(T t) {}
   default void inserted(Iterable<T> list) {}
 }

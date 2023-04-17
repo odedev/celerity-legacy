@@ -10,7 +10,7 @@
   <name>celerity-core-user-app</name>
   <description>celerity core user project</description>
   <url>https://odes.dev</url>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
 
   <properties>
     <java.version>17</java.version>

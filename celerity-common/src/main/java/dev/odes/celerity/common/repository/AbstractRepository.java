@@ -1,45 +1,54 @@
 package dev.odes.celerity.common.repository;
 
+import dev.odes.celerity.common.entity.Entity;
 import dev.odes.celerity.common.model.Model;
 import dev.odes.celerity.common.persistence.Persistence;
 
-public abstract class AbstractRepository<T extends Model, P extends Persistence<T>> implements Repository<T> {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class AbstractRepository< E extends Entity, M extends Model<E>,P extends Persistence<E>> implements Repository<M> {
   private final P persistence;
 
   public AbstractRepository(P persistence) {
     this.persistence = persistence;
   }
 
-  public abstract Boolean isCache();
-
-  public abstract String getPersistenceType();
+//  public abstract Boolean isCache();
+//
+//  public abstract String getPersistenceType();
 
   @Override
-  public T findOneById(String id) {
+  public M findOneById(String id) {
 
     return null;
   }
 
   @Override
-  public T insertOne(T t) {
-    t.setDefaultValue();
-    t.validate();
-    this.beforeInsert();
-    this.persistence.insertOne(t);
+  public M insertOne(M m) {
+    m.setDefaultValue();
+    m.validate();
+    this.beforeInsert(m);
+    E e = m.toEntity();
+    this.persistence.insertOne(e);
     this.inserted();
     return null;
   }
 
   @Override
-  public void insertMany(Iterable<T> list) {
-    list.forEach(t -> {
-      t.setDefaultValue();
-      t.validate();
+  public void insertMany(Iterable<M> list) {
+    list.forEach(m -> {
+      m.setDefaultValue();
+      m.validate();
     });
-    this.setDefaultValue();
+    this.setDefaultValue(list);
     this.validate(list);
-    this.beforeInsert();
-    this.persistence.insertMany(list);
+    this.beforeInsert(list);
+    List<E> eList = new ArrayList<>();
+    for (M m : list) {
+      eList.add(m.toEntity());
+    }
+    this.persistence.insertMany(eList);
     this.inserted(list);
   }
 

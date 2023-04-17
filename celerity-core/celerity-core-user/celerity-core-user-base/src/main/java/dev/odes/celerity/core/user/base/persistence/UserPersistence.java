@@ -1,4 +1,4 @@
-package dev.odes.persistence;
+package dev.odes.celerity.core.user.base.persistence;
 
 import dev.odes.celerity.common.persistence.Persistence;
 
