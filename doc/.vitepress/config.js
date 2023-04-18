@@ -5,6 +5,16 @@ const nav = [
     activeMatch: '^/manual/'
   },
   {
+    text: 'API',
+    link: '/api/',
+    activeMatch: '^/api/'
+  },
+  {
+    text: '开发',
+    link: '/dev/',
+    activeMatch: '^/dev/'
+  },
+  {
     text: '核心模块',
     link: '/core/',
     activeMatch: '^/core/'
@@ -24,6 +34,32 @@ const sidebar = {
         { text: '安装', link: '/manual/install' },
       ]
     },
+    {
+      text: '开始',
+      collapsed: false,
+      items: [
+        { text: '端口', link: '/manual/port' },
+        { text: '安装', link: '/manual/install' },
+      ]
+    },
+  ],
+  '/api/': [
+    {
+      text: 'API',
+      collapsed: false,
+      items: [
+        { text: 'api', link: '/api/index' },
+      ]
+    },
+  ],
+  '/dev/': [
+    {
+      text: 'DEV',
+      collapsed: false,
+      items: [
+        { text: 'index', link: '/dev/index' },
+      ]
+    },
   ],
   '/core/': [
     {
@@ -39,8 +75,8 @@ const sidebar = {
 
 export default {
   // site-level options
-  title: 'Doc',
-  description: 'Just playing around.',
+  title: 'Celerity Doc',
+  description: 'Celerity Doc.',
   lang: 'zh-CN',
   srcDir: './src',
   scrollOffset: 'header',
