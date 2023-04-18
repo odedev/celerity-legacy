@@ -1,10 +1,11 @@
 package dev.odes.celerity.common.response;
 
 public class ResponseError {
-  private Object error;
+  private String title;
   private String message;
   private Integer code;
   private Boolean isOk;
+  private Object error;
 
   public ResponseError(Object error) {
     this.error = error;

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.odes.celerity.core.metadata.persistence.mapper.ViewMapper">
+  <sql id="tableColumn">
+    `metadata_view`.`id`,
+    `metadata_view`.`name`,
+    `metadata_view`.`code`,
+    `metadata_view`.`path`
+  </sql>
+  <sql id="column">
+    `id`,
+    `name`,
+    `code`,
+    `path`
+  </sql>
+<!--  <resultMap id="" type="">-->
+
+<!--  </resultMap>-->
+  <sql id="insertColumn">
+    <trim suffixOverrides=",">
+      `id`,
+      <if test="name != null">`name`,</if>
+      <if test="code != null">`code`,</if>
+      <if test="email != null">`email`,</if>
+    </trim>
+  </sql>
+  <sql id="insertValue">
+    <trim suffixOverrides=",">
+      #{id},
+      <if test="name != null">#{name},</if>
+      <if test="code != null">#{code},</if>
+      <if test="email != null">#{email},</if>
+    </trim>
+  </sql>
+  <sql id="insertEntityValue">
+    <trim suffixOverrides=",">
+      #{view.id},
+      <if test="view.name != null">#{view.name},</if>
+      <if test="view.code != null">#{view.code},</if>
+      <if test="view.email != null">#{view.email},</if>
+    </trim>
+  </sql>
+
+  <sql id="updateColumn">
+    <trim prefix="set" suffixOverrides=",">
+      <if test="username != null">`username` = #{username},</if>
+      <if test="code != null">`name` = #{code},</if>
+      <if test="email != null">`email` = #{email},</if>
+    </trim>
+  </sql>
+
+  <sql id="updateEntityColumn">
+    <trim prefix="set" suffixOverrides=",">
+      <if test="view.username != null">`username` = #{view.username},</if>
+      <if test="view.code != null">`name` = #{view.code},</if>
+      <if test="view.email != null">`email` = #{view.email},</if>
+    </trim>
+  </sql>
+
+  <select id="findOne" resultType="dev.odes.celerity.core.user.domain.entity.User">
+    SELECT
+    <include refid="column"/>
+    FROM `metadata_view`
+    <if test="where != null and where != ''">
+      <where>
+        ${where}
+      </where>
+    </if>
+    LIMIT 1
+  </select>
+
+  <select id="findMany" resultType="dev.odes.celerity.core.user.domain.entity.User">
+    SELECT
+    <include refid="column"/>
+    FROM `metadata_view`
+    <if test="where != null and where != ''">
+      <where>
+        ${where}
+      </where>
+    </if>
+
+<!--    <if test="order != null and order != ''">-->
+<!--      ORDER BY ${order}-->
+<!--    </if>-->
+    <choose>
+      <when test="order != null and order != ''">
+        ORDER BY ${order}
+      </when>
+      <otherwise>
+        ORDER BY username
+      </otherwise>
+    </choose>
+  </select>
+
+  <insert id="insert" parameterType="dev.odes.celerity.core.user.domain.entity.User">
+    INSERT INTO `metadata_view`
+    (<include refid="insertColumn"/>)
+    VALUES
+    (<include refid="insertValue"/>)
+  </insert>
+
+
+  <insert id="insertMany" parameterType="java.util.List">
+    INSERT INTO `metadata_view`
+    (<include refid="insertColumn"/>)
+    VALUES
+        <foreach collection="userList" item="user" separator=",">
+          (<include refid="insertEntityValue"/>)
+        </foreach>
+  </insert>
+
+  <update id="update" parameterType="java.util.HashMap">
+    UPDATE `user`
+    <include refid="updateColumn"/>
+    WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}
+  </update>
+
+<!--  <update id="updateMany" parameterType="java.util.HashMap">-->
+<!--    UPDATE `user`-->
+<!--    <foreach collection="userList" item="user" separator=",">-->
+<!--      <include refid="updateColumn"/>-->
+<!--    </foreach>-->
+<!--    WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}-->
+<!--  </update>-->
+
+  <delete id="delete">
+    DELETE FROM `metadata_view` WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}
+  </delete>
+
+  <select id="count" resultType="Integer">
+    SELECT COUNT(1) FROM `metadata_view`
+    <if test="where != null and where != ''">
+      ${where}
+    </if>
+    LIMIT 1
+  </select>
+
+  <select id="exist" resultType="Integer">
+    SELECT COUNT(1) FROM `metadata_view`
+    <if test="where != null and where != ''">
+      ${where}
+    </if>
+    LIMIT 1
+  </select>
+
+  <select id="index" resultType="Integer">
+    SELECT num FROM (
+    SELECT D.id, (@row_number:=@row_number+1) as num FROM (SELECT `metadata_view`.id FROM `metadata_view`
+    <if test="where != null and where != ''">
+      ${where}
+    </if>
+    <if test="order != null and order != ''">
+      ORDER BY ${order}
+    </if>
+    ) AS D, (SELECT @row_number:=-1) as T) as A WHERE A.id=#{id} LIMIT 1
+  </select>
+
+</mapper>

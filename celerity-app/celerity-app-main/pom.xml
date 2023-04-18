@@ -6,7 +6,6 @@
     <groupId>dev.odes</groupId>
     <artifactId>celerity-app</artifactId>
     <version>1.0.0</version>
-    <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
 <!--	<groupId>dev.odes</groupId>-->

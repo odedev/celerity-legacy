@@ -1,13 +1,16 @@
 package dev.odes.celerity.core.user.domain.repository;
 
-import dev.odes.celerity.core.user.domain.persistence.UserPersistence;
-import org.springframework.stereotype.Repository;
+import dev.odes.celerity.core.user.domain.entity.User;
+import dev.odes.celerity.core.user.domain.model.UserModel;
 
-@Repository(value = "dev.odes.celerity.core.user.domain.repository.UserRepository")
-public class UserRepository {
-  private final UserPersistence userPersistence;
+import java.util.List;
 
-  public UserRepository(UserPersistence userPersistence) {
-    this.userPersistence = userPersistence;
-  }
+public interface UserRepository {
+
+  public User findOne();
+
+  public List<User> findMany();
+
+  public List<UserModel> find();
+
 }

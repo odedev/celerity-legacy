@@ -7,7 +7,6 @@
     <groupId>dev.odes</groupId>
     <artifactId>celerity-core-user</artifactId>
     <version>1.0.0</version>
-    <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>dev.odes</groupId>
   <artifactId>celerity-core-user-domain</artifactId>

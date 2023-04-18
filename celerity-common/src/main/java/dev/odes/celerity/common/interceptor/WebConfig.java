@@ -1,4 +1,4 @@
-package dev.odes.celerity.common.config;
+package dev.odes.celerity.common.interceptor;
 
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

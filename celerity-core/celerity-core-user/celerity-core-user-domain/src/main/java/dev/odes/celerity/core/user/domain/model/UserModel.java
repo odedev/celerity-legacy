@@ -92,6 +92,8 @@ public class UserModel implements Model<User> {
     this.setUsername(user.getUsername());
     this.setCode(user.getCode());
     this.setName(user.getName());
+    this.setEmail(user.getEmail());
+    this.setPhone(user.getPhone());
     this.setIsAdmin(user.getIsAdmin());
   }
 

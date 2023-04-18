@@ -6,14 +6,18 @@
   <sql id="tableColumn">
     `user`.`id`,
     `user`.`username`,
-    `user`.`name`,
-    `user`.`email`
+    `user`.`code`,
+    `user`.`email`,
+    `user`.`phone`,
+    `user`.`is_admin`
   </sql>
   <sql id="column">
     `id`,
     `username`,
-    `name`,
-    `email`
+    `code`,
+    `email`,
+    `phone`,
+    `is_admin`
   </sql>
 <!--  <resultMap id="" type="">-->
 
@@ -22,7 +26,7 @@
     <trim suffixOverrides=",">
       `id`,
       <if test="username != null">`username`,</if>
-      <if test="name != null">`name`,</if>
+      <if test="code != null">`code`,</if>
       <if test="email != null">`email`,</if>
     </trim>
   </sql>
@@ -30,20 +34,48 @@
     <trim suffixOverrides=",">
       #{id},
       <if test="username != null">#{username},</if>
-      <if test="name != null">#{name},</if>
+      <if test="code != null">#{code},</if>
       <if test="email != null">#{email},</if>
+    </trim>
+  </sql>
+  <sql id="insertEntityValue">
+    <trim suffixOverrides=",">
+      #{user.id},
+      <if test="user.username != null">#{user.username},</if>
+      <if test="user.code != null">#{user.code},</if>
+      <if test="user.email != null">#{user.email},</if>
     </trim>
   </sql>
 
   <sql id="updateColumn">
     <trim prefix="set" suffixOverrides=",">
       <if test="username != null">`username` = #{username},</if>
-      <if test="name != null">`name` = #{name},</if>
+      <if test="code != null">`name` = #{code},</if>
       <if test="email != null">`email` = #{email},</if>
     </trim>
   </sql>
 
-  <select id="find" resultType="dev.odes.celerity.core.user.domain.entity.User">
+  <sql id="updateEntityColumn">
+    <trim prefix="set" suffixOverrides=",">
+      <if test="user.username != null">`username` = #{user.username},</if>
+      <if test="user.code != null">`name` = #{user.code},</if>
+      <if test="user.email != null">`email` = #{user.email},</if>
+    </trim>
+  </sql>
+
+  <select id="findOne" resultType="dev.odes.celerity.core.user.domain.entity.User">
+    SELECT
+    <include refid="column"/>
+    FROM `user`
+    <if test="where != null and where != ''">
+      <where>
+        ${where}
+      </where>
+    </if>
+    LIMIT 1
+  </select>
+
+  <select id="findMany" resultType="dev.odes.celerity.core.user.domain.entity.User">
     SELECT
     <include refid="column"/>
     FROM `user`
@@ -53,9 +85,17 @@
       </where>
     </if>
 
-    <if test="order != null and order != ''">
-      ORDER BY ${order}
-    </if>
+<!--    <if test="order != null and order != ''">-->
+<!--      ORDER BY ${order}-->
+<!--    </if>-->
+    <choose>
+      <when test="order != null and order != ''">
+        ORDER BY ${order}
+      </when>
+      <otherwise>
+        ORDER BY username
+      </otherwise>
+    </choose>
   </select>
 
   <insert id="insert" parameterType="dev.odes.celerity.core.user.domain.entity.User">
@@ -65,11 +105,29 @@
     (<include refid="insertValue"/>)
   </insert>
 
+
+  <insert id="insertMany" parameterType="java.util.List">
+    INSERT INTO `user`
+    (<include refid="insertColumn"/>)
+    VALUES
+        <foreach collection="userList" item="user" separator=",">
+          (<include refid="insertEntityValue"/>)
+        </foreach>
+  </insert>
+
   <update id="update" parameterType="java.util.HashMap">
     UPDATE `user`
     <include refid="updateColumn"/>
     WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}
   </update>
+
+<!--  <update id="updateMany" parameterType="java.util.HashMap">-->
+<!--    UPDATE `user`-->
+<!--    <foreach collection="userList" item="user" separator=",">-->
+<!--      <include refid="updateColumn"/>-->
+<!--    </foreach>-->
+<!--    WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}-->
+<!--  </update>-->
 
   <delete id="delete">
     DELETE FROM `user` WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}

@@ -8,7 +8,6 @@
     <groupId>dev.odes</groupId>
     <artifactId>celerity-core-metadata</artifactId>
     <version>1.0.0</version>
-    <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
 <!--  <groupId>dev.odes</groupId>-->
@@ -23,9 +22,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-
-    <velocity.engine.version>2.3</velocity.engine.version>
-    <velocity.tools.version>3.1</velocity.tools.version>
 
   </properties>
 

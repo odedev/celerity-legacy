@@ -2,10 +2,11 @@ package dev.odes.celerity.common.response;
 
 
 public class ResponseData {
-  private Object data;
+  private String title;
   private String message;
   private Integer code;
   private Boolean isOk;
+  private Object data;
 
   public ResponseData(Object data) {
     this.data = data;

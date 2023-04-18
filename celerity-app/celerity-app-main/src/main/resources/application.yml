@@ -4,13 +4,15 @@ server:
 spring:
   application:
     name: CelerityMain
-  profiles:
-    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  #  profiles:
+#    active: dev
   datasource:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/celerity?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/celerity?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
   flyway:
     enabled: true
     locations: "classpath:db/migration"

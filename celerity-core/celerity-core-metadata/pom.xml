@@ -6,9 +6,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>dev.odes</groupId>
-    <artifactId>celerity</artifactId>
+    <artifactId>celerity-core</artifactId>
     <version>1.0.0</version>
-    <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
 <!--  <groupId>dev.odes</groupId>-->
@@ -31,6 +30,7 @@
   <modules>
     <module>celerity-core-metadata-app</module>
     <module>celerity-core-metadata-domain</module>
+    <module>celerity-core-metadata-persistence</module>
   </modules>
 
   <dependencies>
