@@ -8,32 +8,43 @@ public class ResponseError {
   private Object error;
 
   public ResponseError(Object error) {
-    this.error = error;
-    this.message = null;
-    this.code = 400;
-    this.isOk = false;
+    this.setTitle("");
+    this.setMessage("");
+    this.setCode(400);
+    this.setIsOk(false);
+    this.setError(error);
   }
 
-  public ResponseError(String message) {
-    this.error = null;
-    this.message = message;
-    this.code = 400;
-    this.isOk = false;
+  public ResponseError(String title, String message) {
+    this.setTitle(title);
+    this.setMessage(message);
+    this.setCode(400);
+    this.setIsOk(false);
+    this.setError(null);
   }
 
-  public ResponseError(Object error, String message) {
-    this.error = error;
-    this.message = message;
-    this.code = 400;
-    this.isOk = false;
+  public ResponseError(String title, String message, Object error) {
+    this.setTitle(title);
+    this.setMessage(message);
+    this.setCode(400);
+    this.setIsOk(false);
+    this.setError(error);
   }
 
-  public Object getError() {
-    return error;
+  public ResponseError(String title, String message, Integer code) {
+    this.setTitle(title);
+    this.setMessage(message);
+    this.setCode(code);
+    this.setIsOk(false);
+    this.setError(null);
   }
 
-  public void setError(Object error) {
-    this.error = error;
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   public String getMessage() {
@@ -52,11 +63,19 @@ public class ResponseError {
     this.code = code;
   }
 
-  public Boolean getOk() {
+  public Boolean getIsOk() {
     return isOk;
   }
 
-  public void setOk(Boolean ok) {
+  public void setIsOk(Boolean ok) {
     isOk = ok;
+  }
+
+  public Object getError() {
+    return error;
+  }
+
+  public void setError(Object error) {
+    this.error = error;
   }
 }

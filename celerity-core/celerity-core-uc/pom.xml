@@ -5,15 +5,15 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>dev.odes</groupId>
-    <artifactId>celerity</artifactId>
+    <artifactId>celerity-core</artifactId>
     <version>1.0.0</version>
   </parent>
 
-  <groupId>dev.odes</groupId>
-  <artifactId>celerity-core</artifactId>
+
+  <artifactId>celerity-core-uc</artifactId>
   <version>1.0.0</version>
-  <name>celerity-core</name>
-  <description>celerity core project</description>
+  <name>celerity-core-uc</name>
+  <description>celerity core uc project</description>
   <url>https://odes.dev</url>
   <packaging>pom</packaging>
 
@@ -25,12 +25,9 @@
   </properties>
 
   <modules>
-    <module>celerity-core-auth</module>
-    <module>celerity-core-client</module>
-    <module>celerity-core-develop</module>
-    <module>celerity-core-metadata</module>
-    <module>celerity-core-system</module>
-    <module>celerity-core-uc</module>
+    <module>celerity-core-uc-application</module>
+    <module>celerity-core-uc-domain</module>
+    <module>celerity-core-uc-infrastructure</module>
   </modules>
 
   <dependencies>
@@ -38,11 +35,7 @@
       <groupId>dev.odes</groupId>
       <artifactId>celerity-common</artifactId>
       <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>dev.odes</groupId>
-      <artifactId>celerity-storage-mysql</artifactId>
-      <version>1.0.0</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>

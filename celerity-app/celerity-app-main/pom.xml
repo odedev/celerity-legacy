@@ -25,11 +25,11 @@
 
 	<dependencies>
 
-<!--    <dependency>-->
-<!--      <groupId>dev.odes</groupId>-->
-<!--      <artifactId>celerity-core-user-app</artifactId>-->
-<!--      <version>1.0.0</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>dev.odes</groupId>
+      <artifactId>celerity-core-uc-application</artifactId>
+      <version>1.0.0</version>
+    </dependency>
     <dependency>
       <groupId>dev.odes</groupId>
       <artifactId>celerity-core-metadata-application</artifactId>

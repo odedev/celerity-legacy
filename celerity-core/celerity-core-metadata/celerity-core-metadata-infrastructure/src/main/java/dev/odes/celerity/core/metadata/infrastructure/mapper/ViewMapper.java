@@ -1,6 +1,10 @@
 package dev.odes.celerity.core.metadata.infrastructure.mapper;
 
+import dev.odes.celerity.core.metadata.domain.entity.View;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * package: dev.odes.celerity.core.metadata.persistence.mapper
@@ -11,4 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ViewMapper {
+  public View findOne(@Param("where") String where, String order);
+
+  public List<View> findMany(@Param("where") String where, String order);
 }

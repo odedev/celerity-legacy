@@ -1,19 +1,28 @@
 package dev.odes.celerity.common.repository;
 
-import java.util.List;
+public interface Repository<M> {
+  public M findOne(String where);
+  public Iterable<M> findMany(String where, String order);
+  public M findOneById(String id);
+  public Iterable<M> findManyById(Iterable<String> ids);
+  public Iterable<M> findAll(String order);
+//  public Iterable<M> findTree(String where, String order);
 
+  public M insertOne(M m);
+  public Iterable<M> insertMany(Iterable<M> list);
 
-public interface Repository<T> {
-  public T findOne(String condition);
-  public List<T> findMany(String where, String order);
-  public List<T> findTree(String where, String order);
-  public List<T> findAll(String order);
+  public M updateOne(M m);
+  public Iterable<M> updateMany(Iterable<M> list);
 
-  public T findOneById(String id);
-  public T findManyById(Iterable<String> ids);
+  public M deleteOne(M m);
+  public Iterable<M> deleteMany(Iterable<M> list);
 
-  public T insertOne(T t);
-  public void insertMany(Iterable<T> list);
+  public M removeOne(M m);
+  public Iterable<M> removeMany(Iterable<M> list);
+
+  public Integer count();
+  public Boolean exist();
+  public Integer findIndex();
 
   default void setDefaultValue() {}
   default void validate() {}
@@ -26,13 +35,13 @@ public interface Repository<T> {
   default void beforeDelete() {}
   default void deleted() {}
 
-  default void setDefaultValue(T t) {}
-  default void setDefaultValue(Iterable<T> list) {}
-  default void validate(T t) {}
-  default void validate(Iterable<T> list) {}
+  default void setDefaultValue(M m) {}
+  default void setDefaultValue(Iterable<M> list) {}
+  default void validate(M m) {}
+  default void validate(Iterable<M> list) {}
 
-  default void beforeInsert(T t) {}
-  default void beforeInsert(Iterable<T> list) {}
-  default void inserted(T t) {}
-  default void inserted(Iterable<T> list) {}
+  default void beforeInsert(M m) {}
+  default void beforeInsert(Iterable<M> list) {}
+  default void inserted(M m) {}
+  default void inserted(Iterable<M> list) {}
 }

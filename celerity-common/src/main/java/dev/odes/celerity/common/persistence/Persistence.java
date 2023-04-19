@@ -24,8 +24,10 @@ public interface Persistence<T> {
 
   public void removeMany(Iterable<T> list);
 
-  public void count();
+  public Integer count();
 
-  public void exist();
+  public Integer exist();
+
+  public Integer findIndex();
 
 }

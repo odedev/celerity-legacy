@@ -15,13 +15,6 @@
     `code`,
     `path`
   </sql>
-  <resultMap type="dev.odes.celerity.core.metadata.domain.entity.View" id="resultMap">
-    <id property="id" column="id"/>
-    <result property="code" column="code"/>
-    <result property="name" column="name"/>
-    <result property="path" column="path"/>
-<!--    <result property="createAt" column="create_at"/>-->
-  </resultMap>
 
   <sql id="insertColumn">
     <trim suffixOverrides=",">
@@ -50,7 +43,7 @@
 
   <sql id="updateColumn">
     <trim prefix="set" suffixOverrides=",">
-      <if test="username != null">`username` = #{username},</if>
+      <if test="name != null">`name` = #{name},</if>
       <if test="code != null">`name` = #{code},</if>
       <if test="email != null">`email` = #{email},</if>
     </trim>
@@ -58,11 +51,18 @@
 
   <sql id="updateEntityColumn">
     <trim prefix="set" suffixOverrides=",">
-      <if test="view.username != null">`username` = #{view.username},</if>
+      <if test="view.name != null">`name` = #{view.name},</if>
       <if test="view.code != null">`name` = #{view.code},</if>
       <if test="view.email != null">`email` = #{view.email},</if>
     </trim>
   </sql>
+  <resultMap type="dev.odes.celerity.core.metadata.domain.entity.View" id="resultMap">
+    <id property="id" column="id"/>
+    <result property="code" column="code"/>
+    <result property="name" column="name"/>
+    <result property="path" column="path"/>
+    <!--    <result property="createAt" column="create_at"/>-->
+  </resultMap>
 
   <select id="findOne" resultMap="resultMap" resultType="dev.odes.celerity.core.metadata.domain.entity.View">
     SELECT
@@ -94,7 +94,7 @@
         ORDER BY ${order}
       </when>
       <otherwise>
-        ORDER BY username
+        ORDER BY code
       </otherwise>
     </choose>
   </select>

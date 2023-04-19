@@ -18,17 +18,17 @@ public class ViewPersistenceMybatis implements ViewPersistence {
 
   @Override
   public View findOne() {
-    return null;
+    return this.viewMapper.findOne(null, null);
   }
 
   @Override
   public List<View> findMany() {
-    return null;
+    return this.viewMapper.findMany(null, null);
   }
 
   @Override
   public View findOneById(String id) {
-    return null;
+    return this.viewMapper.findOne(null, null);
   }
 }
 

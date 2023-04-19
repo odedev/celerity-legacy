@@ -9,32 +9,43 @@ public class ResponseData {
   private Object data;
 
   public ResponseData(Object data) {
-    this.data = data;
-    this.message = null;
-    this.code = 200;
-    this.isOk = true;
+    this.setTitle("");
+    this.setMessage("");
+    this.setCode(200);
+    this.setIsOk(true);
+    this.setData(data);
   }
 
-  public ResponseData(String message) {
-    this.data = null;
-    this.message = message;
-    this.code = 200;
-    this.isOk = true;
+  public ResponseData(String title, String message) {
+    this.setTitle(title);
+    this.setMessage(message);
+    this.setCode(200);
+    this.setIsOk(true);
+    this.setData(null);
   }
 
-  public ResponseData(Object data, String message) {
-    this.data = data;
-    this.message = message;
-    this.code = 200;
-    this.isOk = true;
+  public ResponseData(String title, String message, Object data) {
+    this.setTitle(title);
+    this.setMessage(message);
+    this.setCode(200);
+    this.setIsOk(true);
+    this.setData(data);
   }
 
-  public Object getData() {
-    return data;
+  public ResponseData(String title, String message, Integer code) {
+    this.setTitle(title);
+    this.setMessage(message);
+    this.setCode(code);
+    this.setIsOk(true);
+    this.setData(null);
   }
 
-  public void setData(Object data) {
-    this.data = data;
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   public String getMessage() {
@@ -59,5 +70,13 @@ public class ResponseData {
 
   public void setIsOk(Boolean ok) {
     isOk = ok;
+  }
+
+  public Object getData() {
+    return data;
+  }
+
+  public void setData(Object data) {
+    this.data = data;
   }
 }

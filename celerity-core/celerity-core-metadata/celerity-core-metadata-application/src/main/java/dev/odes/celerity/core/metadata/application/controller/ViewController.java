@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * package: dev.odes.celerity.core.metadata.app.controller
  * class: ViewController
@@ -31,6 +33,13 @@ public class ViewController {
   public ResponseData findOneById(@PathVariable("id") String id) {
     ViewModel viewModel = this.viewService.findOneById(id);
     return new ResponseData(viewModel);
+  }
+
+  @Transactional
+  @GetMapping(path = "")
+  public ResponseData findMany() {
+    List<ViewModel> viewModels = this.viewService.findMany();
+    return new ResponseData(viewModels);
   }
 
 }
