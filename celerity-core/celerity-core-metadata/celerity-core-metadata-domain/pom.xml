@@ -10,7 +10,6 @@
     <version>1.0.0</version>
   </parent>
 
-<!--  <groupId>dev.odes</groupId>-->
   <artifactId>celerity-core-metadata-domain</artifactId>
   <version>1.0.0</version>
   <name>celerity-core-metadata-domain</name>
@@ -22,7 +21,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-
   </properties>
 
   <dependencies>

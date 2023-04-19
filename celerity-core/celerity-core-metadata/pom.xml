@@ -28,9 +28,9 @@
 
   </properties>
   <modules>
-    <module>celerity-core-metadata-app</module>
+    <module>celerity-core-metadata-application</module>
     <module>celerity-core-metadata-domain</module>
-    <module>celerity-core-metadata-persistence</module>
+    <module>celerity-core-metadata-infrastructure</module>
   </modules>
 
   <dependencies>

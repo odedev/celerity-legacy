@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  main:
+    image: openjdk:17-jdk
+    environment:
+      SERVER_PORT: "23330"
+    working_dir: /celerity
+    volumes:
+      - ./main/logs:/celerity/logs
+      - ./main/data:/celerity/data
+    ports:
+      - "23330:23330"
+    hostname: main
+    networks:
+      - app
+    privileged: true
+    restart: always
+    user: root
+    command: "java -jar -Xms1024m -Xmx1024m -XX:MetaspaceSize=512M -XX:MaxMetaspaceSize=512M ./app.jar"
+
+networks:
+  app:
+    ipam:
+      driver: default
+      config:
+        - subnet: 20.10.0.0/24

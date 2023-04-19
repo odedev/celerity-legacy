@@ -29,13 +29,20 @@ const sidebar = {
       collapsed: false,
       items: [
         { text: '介绍', link: '/manual/introduction' },
-        { text: '指南', link: '/manual/guide' },
         { text: '概览', link: '/manual/overview' },
-        { text: '安装', link: '/manual/install' },
+        { text: '指南', link: '/manual/guide' },
       ]
     },
     {
-      text: '开始',
+      text: '架构设计',
+      collapsed: false,
+      items: [
+        { text: '架构', link: '/manual/architecture' },
+        { text: 'FAQ', link: '/manual/faq' },
+      ]
+    },
+    {
+      text: '部署',
       collapsed: false,
       items: [
         { text: '端口', link: '/manual/port' },

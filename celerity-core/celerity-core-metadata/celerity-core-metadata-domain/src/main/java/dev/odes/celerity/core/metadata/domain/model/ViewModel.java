@@ -54,6 +54,9 @@ public class ViewModel {
   }
 
   public void fromEntity(View view) {
+    if (view == null) {
+      return;
+    }
     this.setId(view.getId());
     this.setCode(view.getCode());
     this.setName(view.getName());

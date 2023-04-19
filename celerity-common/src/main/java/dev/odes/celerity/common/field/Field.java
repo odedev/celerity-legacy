@@ -109,6 +109,13 @@ public class Field {
    */
   private String referenceEntityField;
 
+  /**
+   * 是否弱引用, 如果为 true 则类型为String或Integer, 不是对应的实体或枚举
+   * 可达到解耦模块依赖
+   * default: false
+   */
+  public Boolean isWeakReference;
+
   public Field() {
   }
 }
