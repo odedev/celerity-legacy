@@ -1,12 +1,12 @@
-package dev.odes.celerity.common.utils;
+package dev.odes.celerity.common.id;
 
 
 import org.apache.commons.lang3.RandomUtils;
-  import org.apache.commons.lang3.StringUtils;
-  import org.apache.commons.lang3.SystemUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
-  import java.net.Inet4Address;
-  import java.net.UnknownHostException;
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
 
 /**
  * Twitter_Snowflake<br>

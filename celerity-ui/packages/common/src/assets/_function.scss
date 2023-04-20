@@ -1,0 +1,6 @@
+@use 'sass:map';
+
+@function pxToRem($px) {
+  @return $px / 16px * 1rem;
+}
+

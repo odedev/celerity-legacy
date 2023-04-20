@@ -10,10 +10,10 @@
   </parent>
 
 <!--  <groupId>dev.odes</groupId>-->
-  <artifactId>celerity-storage-mongodb</artifactId>
+  <artifactId>celerity-storage-rocksdb</artifactId>
   <version>1.0.0</version>
-  <name>celerity-storage-mongodb</name>
-  <description>celerity storage mongodb project</description>
+  <name>celerity-storage-rocksdb</name>
+  <description>celerity storage rocksdb project</description>
   <url>https://odes.dev</url>
   <packaging>jar</packaging>
 
@@ -26,13 +26,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-mongodb</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongodb-driver-sync</artifactId>
-      <version>4.9.0</version>
+      <groupId>org.rocksdb</groupId>
+      <artifactId>rocksdbjni</artifactId>
+      <version>7.10.2</version>
     </dependency>
   </dependencies>
 </project>

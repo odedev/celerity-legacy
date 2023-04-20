@@ -1,12 +1,12 @@
 <template>
-  <aside class="page-aside">
+  <aside class="view-aside">
     <slot></slot>
   </aside>
   </template>
   <script setup>
   </script>
   <style lang="scss">
-  .page-aside {
+  .view-aside {
     height: 100%;
     width: 272px;
     flex-basis: 272px;

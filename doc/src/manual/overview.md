@@ -24,13 +24,18 @@
 │   ├── celerity-module-test
 │   └── celerity-module-demo
 │
+├── celerity-persistence
+│   ├── celerity-persistence-clickhouse
+│   ├── celerity-persistence-couchbase
+│   ├── celerity-persistence-mongodb
+│   └── celerity-persistence-mysql
+│
 ├── celerity-storage
-│   ├── celerity-storage-clickhouse
-│   ├── celerity-storage-couchbase
+│   ├── celerity-storage-elasticsearch
 │   ├── celerity-storage-minio
-│   ├── celerity-storage-mongodb
-│   ├── celerity-storage-mysql
-│   └── celerity-storage-redis
+│   ├── celerity-storage-neo4j
+│   ├── celerity-storage-redis
+│   └── celerity-storage-rocksdb
 │
 ├── celerity-ui
 │   ├── apps

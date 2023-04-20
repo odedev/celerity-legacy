@@ -13,14 +13,26 @@
 + [Vue](https://cn.vuejs.org/)
 + [Vue Router](https://router.vuejs.org/zh/)
 + [Pinia](https://pinia.vuejs.org/zh/)
-+ [Ant Design of Vue](https://antdv.com/)
-+ [Surely Vue](https://surely.cool/)
 + [VueUse](https://vueuse.org/)
 + [Nuxt](https://nuxt.com/)
-+ [VitePress](https://vitepress.dev/)
-
++ [Ant Design of Vue](https://antdv.com/)
++ [Surely Vue](https://surely.cool/)
++ [Vite](https://vitejs.dev/)
 
 ### Backend
++ [Java 17](https://www.oracle.com/java/technologies/downloads/#java17)
++ [Spring Boot 3.x](https://spring.io/)
++ [MyBatis 3](https://mybatis.org/mybatis-3/)
++ [Mybatis PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)
++ [Apache Maven](https://maven.apache.org/)
+
++ [EasyExcel](https://easyexcel.opensource.alibaba.com/)
+
+### Storage
++ [MySQL Community Server 8.0.33](https://dev.mysql.com/downloads/mysql/)
++ [MongoDB Community Edition 6.0.5](https://www.mongodb.com/)
++ [MinIO](https://min.io/)
+
 
 ### Doc
 + [VitePress](https://vitepress.dev/)

@@ -6,14 +6,14 @@ import CeMenu from './menu/CeMenu.vue';
 import CeLogo from './logo/CeLogo.vue';
 import CeTab from './tab/CeTab.vue';
 import CeNav from './nav/CeNav.vue';
-import CeView from './view/CeView.vue';
 import CePage from './page/CePage.vue';
-import CePageAside from './page/CePageAside.vue';
-import CePageMain from './page/CePageMain.vue';
-import CePageNav from './page/CePageNav.vue';
-import CePageHead from './page/CePageHead.vue';
-import CePageBody from './page/CePageBody.vue';
-import CePageFoot from './page/CePageFoot.vue';
+import CeView from './view/CeView.vue';
+import CeViewAside from './view/CeViewAside.vue';
+import CeViewMain from './view/CeViewMain.vue';
+import CeViewNav from './view/CeViewNav.vue';
+import CeViewHead from './view/CeViewHead.vue';
+import CeViewBody from './view/CeViewBody.vue';
+import CeViewFoot from './view/CeViewFoot.vue';
 import CeContent from './content/CeContent.vue';
 
 export {
@@ -25,13 +25,13 @@ export {
   CeLogo,
   CeTab,
   CeNav,
-  CeView,
   CePage,
-  CePageAside,
-  CePageMain,
-  CePageNav,
-  CePageHead,
-  CePageBody,
-  CePageFoot,
+  CeView,
+  CeViewAside,
+  CeViewMain,
+  CeViewNav,
+  CeViewHead,
+  CeViewBody,
+  CeViewFoot,
   CeContent,
 }

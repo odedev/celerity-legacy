@@ -39,10 +39,5 @@
       <artifactId>celerity-common</artifactId>
       <version>1.0.0</version>
     </dependency>
-    <dependency>
-      <groupId>dev.odes</groupId>
-      <artifactId>celerity-storage-mysql</artifactId>
-      <version>1.0.0</version>
-    </dependency>
   </dependencies>
 </project>

@@ -30,5 +30,10 @@
       <artifactId>celerity-core-uc-domain</artifactId>
       <version>1.0.0</version>
     </dependency>
+    <dependency>
+      <groupId>dev.odes</groupId>
+      <artifactId>celerity-persistence-mysql</artifactId>
+      <version>1.0.0</version>
+    </dependency>
   </dependencies>
 </project>

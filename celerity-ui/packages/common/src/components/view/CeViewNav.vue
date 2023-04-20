@@ -1,12 +1,12 @@
 <template>
-  <div class="page-nav">
+  <div class="view-nav">
     <slot></slot>
   </div>
   </template>
   <script setup>
   </script>
   <style lang="scss">
-  .page-nav {
+  .view-nav {
     width: 100%;
     height: 32px;
     flex-basis: 32px;

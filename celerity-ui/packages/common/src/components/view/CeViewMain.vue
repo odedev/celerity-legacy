@@ -1,12 +1,12 @@
 <template>
-  <div class="page-main">
+  <div class="view-main">
     <slot></slot>
   </div>
   </template>
   <script setup>
   </script>
   <style lang="scss">
-  .page-main {
+  .view-main {
     width: 100%;
     height: 100%;
     display: flex;

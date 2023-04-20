@@ -6,6 +6,8 @@ public interface Repository<M> {
   public M findOneById(String id);
   public Iterable<M> findManyById(Iterable<String> ids);
   public Iterable<M> findAll(String order);
+  public Iterable<M> findPage(String order, Integer pageSize);
+
 //  public Iterable<M> findTree(String where, String order);
 
   public M insertOne(M m);

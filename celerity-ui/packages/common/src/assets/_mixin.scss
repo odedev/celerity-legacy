@@ -1,0 +1,16 @@
+
+@mixin color-primary($value) {
+  color: var($value, --theme-primary);
+}
+
+@mixin color-secondary($value) {
+  color: var($value, --theme-color-secondary);
+}
+
+@mixin background-color-primary($value) {
+  background-color: var($value, --theme-color-secondary);
+}
+
+@mixin background-color-secondary($value) {
+  background-color: var($value, --theme-color-secondary);
+}

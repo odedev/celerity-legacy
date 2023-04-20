@@ -1,12 +1,12 @@
 <template>
-<div class="page-body">
+<div class="view-body">
 <slot></slot>
 </div>
 </template>
 <script setup>
 </script>
 <style lang="scss">
-.page-body {
+.view-body {
   height: 100%;
   flex-grow: 1;
   flex-shrink: 1;

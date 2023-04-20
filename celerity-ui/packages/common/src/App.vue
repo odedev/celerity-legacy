@@ -12,19 +12,19 @@
     <CeNav>
       CeNav
     </CeNav>
-    <CeView>
-      <CePage>
-        <CePageAside>
-          CePageAside
-        </CePageAside>
-        <CePageMain>
-          <CePageNav>
-            CePageNav
-          </CePageNav>
-          <CePageHead>
+    <CePage>
+      <CeView>
+        <CeViewAside>
+          CeViewAside
+        </CeViewAside>
+        <CeViewMain>
+          <CeViewNav>
+            CeViewNav
+          </CeViewNav>
+          <CeViewHead>
             <button>列表</button><button>保存</button>
-          </CePageHead>
-          <CePageBody>
+          </CeViewHead>
+          <CeViewBody>
             <CeContent>
               CeApp
               CeLogo
@@ -77,15 +77,15 @@
               </div>
 
             </CeContent>
-            </CePageBody>
-        </CePageMain>
-      </CePage>
-    </CeView>
+            </CeViewBody>
+        </CeViewMain>
+      </CeView>
+    </CePage>
   </CeMain>
 </CeRoot>
 </template>
 <script setup>
-import {CeRoot, CeHeader, CeLogo, CeMenu, CeMain, CeNav, CeTab, CeView, CePage, CePageAside,CePageMain, CePageNav,  CePageHead, CePageBody, CeContent} from './components/index.js'
+import {CeRoot, CeHeader, CeLogo, CeMenu, CeMain, CeNav, CeTab, CePage, CeView, CeViewAside, CeViewMain, CeViewNav,  CeViewHead, CeViewBody, CeContent} from './components/index.js'
 </script>
 <style scoped>
     button {

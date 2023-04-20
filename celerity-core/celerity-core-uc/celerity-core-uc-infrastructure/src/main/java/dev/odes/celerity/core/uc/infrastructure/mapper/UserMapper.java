@@ -1,14 +1,10 @@
 package dev.odes.celerity.core.uc.infrastructure.mapper;
 
 import dev.odes.celerity.core.uc.domain.entity.User;
+import dev.odes.celerity.persistence.mysql.GenericMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 @Mapper
-public interface UserMapper {
-  public User findOne(@Param("where") String where, String order);
+public interface UserMapper extends GenericMapper<User> {
 
-  public List<User> findMany(@Param("where") String where, String order);
 }
