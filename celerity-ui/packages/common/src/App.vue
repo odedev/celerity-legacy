@@ -38,6 +38,12 @@
               CePageFoot
             </CeContent>
             <CeContent>
+              <div>
+              <label>标题名称是的</label>
+              <input type="text">
+              </div>
+            </CeContent>
+            <CeContent>
               <i style="width: 24px;height: 24px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -47,7 +53,7 @@
             </CeContent>
             <CeContent>
               <div style="display: flex;flex-direction: column;width: max-content;border: 1px solid #f5f5f5;">
-                <div style="display: flex;width: 100%;height: 36px; padding-bottom: 8px; justify-content: space-between;align-items: flex-end;background-color: aliceblue;">
+                <div style="display: flex;width: 100%;height: 36px; padding-bottom: 4px; justify-content: space-between;align-items: flex-end;background-color: aliceblue;">
                   <h3 class="title" style="padding-right: 48px;">标题</h3>
                   <div>
                     <button>列表</button><button>保存</button>
@@ -65,7 +71,7 @@
                     </tr>
                   </tbody>
                   <tfoot>
-                    <tr><td>1212</td></tr>
+                    <tr><td><input type="text"></td></tr>
                   </tfoot>
                 </table>
                 <div style="display: flex;width: 100%;height: 32px;justify-content: space-between;align-items: center; background-color: aliceblue;">
@@ -77,15 +83,44 @@
               </div>
 
             </CeContent>
+            <CeContent>
+              <table>
+                <thead>
+                <tr>
+                <th> Name </th>
+                <th> Code </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>dsd</td>
+                  <td>dsd</td>
+
+                </tr>
+                <tr>
+                  <td>dsd</td>
+                  <td>dsd</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <td>dsds</td>
+                  <td>dsds</td>
+                </tr>
+                </tfoot>
+              </table>
+
+            </CeContent>
             </CeViewBody>
         </CeViewMain>
       </CeView>
     </CePage>
   </CeMain>
 </CeRoot>
+<CeFooter>CeFooter</CeFooter>
 </template>
 <script setup>
-import {CeRoot, CeHeader, CeLogo, CeMenu, CeMain, CeNav, CeTab, CePage, CeView, CeViewAside, CeViewMain, CeViewNav,  CeViewHead, CeViewBody, CeContent} from './components/index.js'
+import {CeRoot, CeHeader, CeFooter, CeLogo, CeMenu, CeMain, CeNav, CeTab, CePage, CeView, CeViewAside, CeViewMain, CeViewNav,  CeViewHead, CeViewBody, CeContent} from './components/index.js'
 </script>
 <style scoped>
     button {
@@ -93,10 +128,61 @@ import {CeRoot, CeHeader, CeLogo, CeMenu, CeMain, CeNav, CeTab, CePage, CeView, 
       height: 28px;
       padding: 0 12px;
       margin-left: 8px;
+      font-size: inherit;
     }
     button:first-child {
       margin-left: 0;
     }
+
+    form {
+
+    }
+
+    label {
+      display: inline-block;
+      width: 128px;
+      max-width: 128px;
+      height: 28px;
+      line-height: 28px;
+      padding: 0 8px;
+    }
+    input {
+      display: inline-block;
+      height: 28px;
+      line-height: 28px;
+      padding: 0 8px;
+      font-size: inherit;
+      min-width: 208px;
+      max-width: 272px;
+      border-radius: 2px;
+    }
+
+    table, tr, td {
+      border: 1px solid #E0E0E0;
+    }
+    thead, tfoot {
+      background-color: #CFD8DC;
+    }
+    td {
+      height: 30px;
+      height: 32px;
+      height: 40px;
+      padding: 0 8px;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #F8F8F8;
+    }
+    tbody tr:hover {
+      background-color: #ECEFF1;
+    }
+
+    thead tr {
+      height: 36px;
+    }
+    tfoot tr {
+      height: 32px;
+    }
+
 
     .title {
       font-size: 18px;

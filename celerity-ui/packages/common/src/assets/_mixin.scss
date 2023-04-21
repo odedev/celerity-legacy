@@ -1,16 +1,80 @@
+@use 'sass:map';
 
-@mixin color-primary($value) {
-  color: var($value, --theme-primary);
+@use "variable/base" as *;
+@use "variable/theme" as *;
+
+
+
+@mixin color-primary() {
+  color: var($primary, --theme-primary);
 }
 
-@mixin color-secondary($value) {
-  color: var($value, --theme-color-secondary);
+@mixin color-secondary() {
+  color: var($secondary, --theme-color-secondary);
 }
 
-@mixin background-color-primary($value) {
-  background-color: var($value, --theme-color-secondary);
+@mixin background-color() {
+  color: $on-background;
+  background-color: var($background, --theme-background);
 }
 
-@mixin background-color-secondary($value) {
-  background-color: var($value, --theme-color-secondary);
+@mixin background-color-primary() {
+  color: $on-primary;
+  background-color: var($primary, --theme-primary);
+}
+
+@mixin background-color-secondary() {
+  color: $on-secondary;
+  background-color: var($secondary, --theme-color-secondary);
+}
+
+@mixin background-color-primary-container() {
+  color: $on-primary-container;
+  background-color: var($primary-container, --theme-primary-container);
+}
+
+@mixin surface-color() {
+  color: $on-surface;
+  background-color: var($surface, --theme-surface);
+}
+
+@mixin color-primary-theme() {
+  @include color-primary();
+
+  @each $name, $theme in $themes {
+    [data-theme="#{$name}"] & {
+      color: map.get($theme, "primary");
+    }
+  }
+}
+
+@mixin background-color-primary-theme() {
+  @include background-color-primary();
+
+  @each $name, $theme in $themes {
+    [data-theme="#{$name}"] & {
+      color: map.get($theme, "on-primary");
+      background-color: map.get($theme, "primary");
+    }
+  }
+}
+
+
+@mixin caret-color-primary() {
+  caret-color: var($primary, --theme-primary);
+}
+
+@mixin selection() {
+  * {
+    &::selection,
+    &::-moz-selection {
+      @include background-color-primary();
+    }
+  }
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }

@@ -50,6 +50,12 @@ public class Field {
   private Boolean isDefaultDisplay;
 
   /**
+   * 是否默认排序, 只能有一个字段为 true
+   * default: false
+   */
+  private Boolean isDefaultOrder;
+
+  /**
    * 是否主键, 只能有一个字段为 true
    * default: false
    */

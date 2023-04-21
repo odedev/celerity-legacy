@@ -16,5 +16,9 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+  white-space: nowrap;
+  white-space: normal;
+  letter-spacing: normal;
+  vertical-align: baseline;
 }
 </style>

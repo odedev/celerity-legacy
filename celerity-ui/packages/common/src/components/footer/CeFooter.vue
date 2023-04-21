@@ -21,7 +21,8 @@
   font-size: 12px;
   line-height: 12px;
   padding: 0 8px;
-  background-color: #efdbff;
+  color: #263238;
+  background-color: #CFD8DC;
   overflow: hidden;
 }
 .footer i {

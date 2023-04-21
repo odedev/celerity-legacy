@@ -23,6 +23,10 @@
   line-height: 1.5;
   color: #ffffff;
   background-color: #13c2c2;
+  background-color: #69b1ff;
+  background-color: #009688;
+  background-color: #607D8B;
+  background-color: #546E7A;
 }
 .header .logo {
   width: 208px;

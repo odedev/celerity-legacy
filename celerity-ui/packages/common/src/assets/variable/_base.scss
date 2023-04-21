@@ -1,0 +1,69 @@
+
+$theme-primary: #fdfdfd;
+
+
+$black: #000000;
+$white: #FFFFFF;
+
+$primary: #6750A4; // primary-40
+$secondary: #625B71;
+$tertiary: #F6EDFF; // primary-95
+
+$primary-container: #EADDFF; // primary-90
+
+//$tertiary: #F0FAFF;
+//$tertiary: #EBF8FF;
+
+//$neutral: #757575;
+$neutral: #C7C7C7;
+
+$error: #DC362E;
+$warn: #FF9800;
+$success: #4CAF50;
+
+//$background: #F5F5F5;
+$background: #F8F8F8;
+$surface: #FFFFFF;
+$surface-variant: #FAFAFA;
+
+$outline: #E0E0E0;
+$overlay: #BFBFBF;
+
+$on-primary: #FFFFFF;
+$on-secondary: #FFFFFF;
+$on-tertiary: #1C1B1F;
+
+$on-primary-container: #21005D; // primary-10
+
+$on-background: #1C1B1F;
+$on-surface: #1C1B1F;
+$on-surface-variant: #49454F;
+
+$on-error: #FFFFFF;
+$on-warn: #FFFFFF;
+$on-success: #FFFFFF;
+
+// primary: 主题色. 数字100-99-95-90-80-70-60-50-40-30-20-10-0,表示颜色由浅到深;
+// primary 中取色对应的数字为: primary(40), primary-container(90), on-primary-container(10), tertiary(95)
+// $tertiary: 主要用于 选中, 高亮背景色, 可使用和 primary 同色系的浅色(或浅蓝色), tertiary(95)
+// $error: 错误
+// $neutral: 中性的
+// $background: 背景
+// $surface: 表面
+// $surface-variant: 表面变体, 可用于禁用态
+// $outline: 轮廓线
+// $overlay: 套图透明膜; 覆盖物
+
+
+$padding: 16px;
+$margin: 16px;
+
+$line-height: 1.5;
+
+$typography-headline: 26px;
+$typography-title: 18px;
+$typography-body: 14px;
+$typography-button: 14px;
+$typography-hint: 12px;
+// Rounded shape radius size for components. Default value 4px.
+$shape: 4px,
