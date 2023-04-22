@@ -12,5 +12,6 @@
     display: flex;
     flex-direction: column;
     padding: 0;
+    overflow: hidden;
   }
   </style>

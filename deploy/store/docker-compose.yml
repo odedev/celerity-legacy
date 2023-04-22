@@ -12,7 +12,7 @@ services:
       - "27017:27017"
     hostname: mongo
     networks:
-      - storage
+      - store
     privileged: true
     restart: always
     user: root
@@ -31,14 +31,14 @@ services:
       - "3306:3306"
     hostname: mysql
     networks:
-      - storage
+      - store
     privileged: true
     restart: always
     user: root
     command: --default-authentication-plugin=mysql_native_password
 
 networks:
-  storage:
+  store:
     ipam:
       driver: default
       config:

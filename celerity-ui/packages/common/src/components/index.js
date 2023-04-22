@@ -15,6 +15,10 @@ import CeViewHead from './view/CeViewHead.vue';
 import CeViewBody from './view/CeViewBody.vue';
 import CeViewFoot from './view/CeViewFoot.vue';
 import CeContent from './content/CeContent.vue';
+import CeBox from './box/CeBox.vue';
+import CeCell from './cell/CeCell.vue';
+
+import CeTable from './table/CeTable.vue';
 
 export {
   CeHeader,
@@ -34,4 +38,9 @@ export {
   CeViewBody,
   CeViewFoot,
   CeContent,
+  CeBox,
+  CeCell,
+
+  CeTable,
+
 }

@@ -32,4 +32,21 @@ public class UserService {
   public List<UserModel> find() {
     return this.userRepository.find();
   }
+
+  public User insertOne(User user) {
+    return this.userRepository.insertOne(user);
+  }
+
+  public User updateOne(String id, User user) {
+    return this.userRepository.updateOne(id, user);
+  }
+
+  public void deleteOne(User user) {
+    this.userRepository.deleteOne(user);
+  }
+
+  public void removeOne(String id) {
+    this.userRepository.removeOne(id);
+  }
+
 }

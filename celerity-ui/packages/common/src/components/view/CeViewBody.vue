@@ -12,6 +12,7 @@
   flex-shrink: 1;
   flex-basis: auto;
   overflow: auto;
+  overflow: overlay;
   padding: 0;
 }
 </style>

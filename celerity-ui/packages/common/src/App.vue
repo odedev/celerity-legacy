@@ -3,6 +3,9 @@
   <CeLogo>
     LOGO
   </CeLogo>
+  <CeCell style="width: 336px; width: 440px; background-color: #9E9E9E">
+    Admin
+  </CeCell>
 </CeHeader>
 <CeRoot>
   <CeMenu>
@@ -11,6 +14,7 @@
   <CeMain>
     <CeNav>
       CeNav
+
     </CeNav>
     <CePage>
       <CeView>
@@ -22,9 +26,65 @@
             CeViewNav
           </CeViewNav>
           <CeViewHead>
-            <button>列表</button><button>保存</button>
+            <CeBox>
+              <CeCell>
+                <label>
+
+                  标题名称是的</label>
+                <input type="text">
+              </CeCell>
+              <CeCell>
+                <label>标题名称是的</label>
+                <input type="text">
+              </CeCell>
+            </CeBox>
+            <CeBox>
+              <button>列表</button><button>保存</button>
+            </CeBox>
           </CeViewHead>
           <CeViewBody>
+<!--            <CeTable></CeTable>-->
+            <CeContent>
+              <CeTable></CeTable>
+            </CeContent>
+            <CeContent>
+              <CeTable></CeTable>
+              <div style="display: flex;flex-direction: column;width: max-content;">
+                <div style="display: flex;width: 100%;height: 36px; padding-bottom: 4px; justify-content: space-between;align-items: flex-end;">
+                  <h3 class="title" style="padding-right: 48px;">标题</h3>
+                  <div>
+                    <button>列表</button><button>保存</button>
+                  </div>
+                </div>
+                <table>
+                  <colgroup>
+                    <col style="max-width: 208px;">
+                    <col style="width: 208px;background-color: red">
+
+                  </colgroup>
+                  <thead>
+                  <tr>
+                    <td>name</td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1212</td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr><td><input type="text"></td></tr>
+                  </tfoot>
+                </table>
+                <div style="display: flex;width: 100%;height: 32px;justify-content: space-between;align-items: center; background-color: aliceblue;">
+                  <div>过滤</div>
+                  <div>
+                    page
+                  </div>
+                </div>
+              </div>
+
+            </CeContent>
             <CeContent>
               CeApp
               CeLogo
@@ -38,10 +98,14 @@
               CePageFoot
             </CeContent>
             <CeContent>
-              <div>
-              <label>标题名称是的</label>
-              <input type="text">
-              </div>
+              <CeCell>
+                <label>标题名称是的</label>
+                <input type="text">
+              </CeCell>
+              <CeCell>
+                <label>标题名称是的</label>
+                <input type="text">
+              </CeCell>
             </CeContent>
             <CeContent>
               <i style="width: 24px;height: 24px;">
@@ -117,12 +181,16 @@
     </CePage>
   </CeMain>
 </CeRoot>
-<CeFooter>CeFooter</CeFooter>
+<CeFooter>CeFooter 主题 帮助 查找 提示 历史</CeFooter>
 </template>
 <script setup>
-import {CeRoot, CeHeader, CeFooter, CeLogo, CeMenu, CeMain, CeNav, CeTab, CePage, CeView, CeViewAside, CeViewMain, CeViewNav,  CeViewHead, CeViewBody, CeContent} from './components/index.js'
+import {
+  CeRoot, CeHeader, CeFooter, CeLogo, CeMenu, CeMain, CeNav, CeTab, CePage,
+  CeView, CeViewAside, CeViewMain, CeViewNav,  CeViewHead, CeViewBody, CeContent, CeBox, CeCell,
+  CeTable
+} from './components/index.js'
 </script>
-<style scoped>
+<style>
     button {
       display: inline-block;
       height: 28px;
@@ -144,34 +212,44 @@ import {CeRoot, CeHeader, CeFooter, CeLogo, CeMenu, CeMain, CeNav, CeTab, CePage
       max-width: 128px;
       height: 28px;
       line-height: 28px;
+      height: 2em;
+      line-height: 2em;
       padding: 0 8px;
+      text-align: right;
     }
     input {
       display: inline-block;
       height: 28px;
       line-height: 28px;
-      padding: 0 8px;
+      height: 2em;
+      line-height: 2em;
+      padding: 0 4px;
       font-size: inherit;
-      min-width: 208px;
+      width: 208px;
+      /*width: 272px;*/
       max-width: 272px;
-      border-radius: 2px;
-    }
+      max-width: 336px;
 
-    table, tr, td {
+      border-radius: 2px;
       border: 1px solid #E0E0E0;
     }
-    thead, tfoot {
-      background-color: #CFD8DC;
+
+    /*table, */
+    tr, td {
+      border: 1px solid #E0E0E0;
     }
+    /*thead, tfoot {*/
+    /*  background-color: #CFD8DC;*/
+    /*}*/
     td {
       height: 30px;
       height: 32px;
       height: 40px;
       padding: 0 8px;
     }
-    tbody tr:nth-child(even) {
-      background-color: #F8F8F8;
-    }
+    /*tbody tr:nth-child(even) {*/
+    /*  background-color: #F8F8F8;*/
+    /*}*/
     tbody tr:hover {
       background-color: #ECEFF1;
     }

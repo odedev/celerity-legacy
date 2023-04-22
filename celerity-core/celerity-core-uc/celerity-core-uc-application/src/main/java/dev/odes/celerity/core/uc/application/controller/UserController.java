@@ -5,9 +5,7 @@ import dev.odes.celerity.core.uc.domain.entity.User;
 import dev.odes.celerity.core.uc.domain.model.UserModel;
 import dev.odes.celerity.core.uc.domain.service.UserService;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +24,30 @@ public class UserController {
     List<User> users = this.userService.findMany();
     List<UserModel> userModelList = this.userService.find();
     return new ResponseData(userModelList);
+  }
+
+  @PostMapping(path = "")
+  public ResponseData insertOne(@RequestBody  User user) {
+    this.userService.insertOne(user);
+    return new ResponseData(user);
+  }
+
+  @PutMapping(path = "/{id}")
+  public ResponseData updateOne(@PathVariable String id, @RequestBody  User user) {
+    this.userService.updateOne(id, user);
+    return new ResponseData(id);
+  }
+
+  @PatchMapping(path = "/{id}")
+  public ResponseData deleteOne(@PathVariable String id, @RequestBody  User user) {
+    this.userService.deleteOne(user);
+    return new ResponseData(user);
+  }
+
+  @DeleteMapping(path = "/{id}")
+  public ResponseData removeOne(@PathVariable String id, @RequestBody  User user) {
+    this.userService.removeOne(id);
+    return new ResponseData(user);
   }
 
 }

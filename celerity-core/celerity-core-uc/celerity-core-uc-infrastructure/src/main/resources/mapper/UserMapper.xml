@@ -175,7 +175,7 @@
   <update id="updateOne" parameterType="dev.odes.celerity.core.uc.domain.entity.User">
     UPDATE `uc_user`
     <include refid="updateColumn"/>
-    WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}
+    WHERE id=#{id}
   </update>
 
 <!--  <update id="updateMany" parameterType="java.util.HashMap">-->

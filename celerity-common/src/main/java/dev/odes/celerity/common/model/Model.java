@@ -5,7 +5,7 @@ public interface Model<T> {
   public T toEntity();
 
   default void setDefaultValue() {}
-  default void setGenericValue() {}
+//  default void setGenericValue() {}
   default void validate() {}
 
 //  default void beforeFind(String where, String order) {}
