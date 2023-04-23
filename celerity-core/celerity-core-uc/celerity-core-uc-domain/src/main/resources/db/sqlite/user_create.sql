@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS `uc_user` (
+    `id` VARCHAR(32) NOT NULL,
+    `username` VARCHAR(32) NOT NULL DEFAULT '' UNIQUE,
+    `password` VARCHAR(255) NOT NULL DEFAULT '',
+    `code` VARCHAR(32) NOT NULL UNIQUE,
+    `name` VARCHAR(32) NOT NULL DEFAULT '',
+    `phone` VARCHAR(11) NULL DEFAULT '',
+    `email` VARCHAR(64) NULL DEFAULT '',
+    `type` TINYINT(3) NULL DEFAULT '1',
+    `status` TINYINT(3) NULL DEFAULT '0',
+    `is_admin` TINYINT(1) NULL DEFAULT '0',
+    `salt` VARCHAR(255) NOT NULL DEFAULT '',
+    `remark` VARCHAR(255) NULL DEFAULT '',
+    `is_valid` TINYINT(1) NULL DEFAULT '1',
+    `created_by` VARCHAR(32) NULL DEFAULT NULL,
+    `created_at` DATETIME NULL DEFAULT NULL,
+    `updated_by` VARCHAR(32) NULL DEFAULT NULL,
+    `updated_at` DATETIME NULL DEFAULT NULL,
+    `deleted_by` VARCHAR(32) NULL DEFAULT NULL,
+    `deleted_at` DATETIME NULL DEFAULT NULL,
+    PRIMARY KEY (`id`)
+);

@@ -9,6 +9,8 @@ public interface UserPersistence {
 
   public List<User> findMany(Object where, Object order);
 
+  public List<User> findAll(Object where, Object order);
+
   public void insertOne(User user);
 
   public void updateOne(User user);

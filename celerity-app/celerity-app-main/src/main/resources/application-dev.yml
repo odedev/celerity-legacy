@@ -2,19 +2,23 @@ spring:
   datasource:
     username: root
     password: 123456
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:file:./celerity;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS \"PUBLIC\";
+    driverClassName: org.sqlite.JDBC
+    url: jdbc:sqlite:celerity.db
   sql:
     init:
-      platform: h2
-  h2:
-    console:
-      path: /h2
-      enabled: true
-      settings:
-        web-allow-others: true
+      platform: sqlite
   devtools:
     restart:
       poll-interval: "2s"
       quiet-period: "1s"
       exclude: "static/**,public/**"
+  flyway:
+    enabled: false
+    locations: "classpath:db/migration, classpath:db/sqlite"
+    table: flyway_schema_history
+    encoding: UTF-8
+    clean-disabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    create-schemas: false
+    schemas: flyway

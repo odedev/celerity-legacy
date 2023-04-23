@@ -1,17 +1,22 @@
 package dev.odes.celerity.core.system.domain.model;
 
-import dev.odes.celerity.common.model.AbstractModel;
-import dev.odes.celerity.core.system.domain.entity.Setting;
+import dev.odes.celerity.core.system.domain.model.SettingModelBase;
 
-public class SettingModel extends AbstractModel<Setting> {
-
+/**
+ * package: dev.odes.celerity.core.system.domain.repository
+ * class: SettingModel
+ * date: 2023/4/23 23:45
+ * version: 1.0.0
+ * description:
+ */
+public class SettingModel extends SettingModelBase {
   @Override
-  public void fromEntity(Setting setting) {
-
+  public void setDefaultValue() {
+    super.setDefaultValue();
   }
 
   @Override
-  public Setting toEntity() {
-    return null;
+  public void validate() {
+    super.validate();
   }
 }

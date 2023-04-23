@@ -10,39 +10,31 @@
     <version>1.0.0</version>
   </parent>
 
-<!--  <groupId>dev.odes</groupId>-->
   <artifactId>celerity-core-develop</artifactId>
   <version>1.0.0</version>
   <name>celerity-develop</name>
   <description>celerity develop project</description>
   <url>https://odes.dev</url>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-
-    <velocity.engine.version>2.3</velocity.engine.version>
-    <velocity.tools.version>3.1</velocity.tools.version>
-
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <modules>
+    <module>celerity-core-develop-application</module>
+    <module>celerity-core-develop-domain</module>
+    <module>celerity-core-develop-infrastructure</module>
+    <module>celerity-core-develop-generator</module>
+  </modules>
 
   <dependencies>
     <dependency>
       <groupId>dev.odes</groupId>
       <artifactId>celerity-common</artifactId>
       <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.velocity</groupId>
-      <artifactId>velocity-engine-core</artifactId>
-      <version>${velocity.engine.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.velocity.tools</groupId>
-      <artifactId>velocity-tools-generic</artifactId>
-      <version>${velocity.tools.version}</version>
     </dependency>
   </dependencies>
 </project>

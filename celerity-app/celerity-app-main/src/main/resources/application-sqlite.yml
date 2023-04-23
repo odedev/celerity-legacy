@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driverClassName: org.sqlite.JDBC
+    url: jdbc:sqlite:celerity.db
+  sql:
+    init:
+      platform: sqlite

@@ -34,6 +34,11 @@ public class UserPersistenceMybatis implements UserPersistence {
   }
 
   @Override
+  public List<User> findAll(Object where, Object order) {
+    return this.userMapper.findAll(where.toString(), order.toString());
+  }
+
+  @Override
   public void insertOne(User user) {
     this.userMapper.insertOne(user);
   }

@@ -22,7 +22,7 @@ public class UCApplicationController {
     this.ucApplicationService = ucApplicationService;
   }
 
-  @GetMapping(path = "")
+  @GetMapping(path = "/application")
   public ResponseData getUCApplication() {
     return new ResponseData(this.ucApplicationService.getUCApplication());
   }

@@ -3,13 +3,13 @@ package dev.odes.celerity.core.system.domain.repository;
 
 import dev.odes.celerity.common.repository.AbstractRepository;
 import dev.odes.celerity.core.system.domain.entity.Setting;
-import dev.odes.celerity.core.system.domain.model.SettingModel;
+import dev.odes.celerity.core.system.domain.model.SettingModelBase;
 import dev.odes.celerity.core.system.domain.persistence.SettingPersistence;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class SettingRepository extends AbstractRepository<Setting, SettingModel, SettingPersistence> {
+public class SettingRepository extends AbstractRepository<Setting, SettingModelBase, SettingPersistence> {
   private final SettingPersistence settingPersistence;
 
   public SettingRepository(SettingPersistence settingPersistence) {
@@ -18,86 +18,86 @@ public class SettingRepository extends AbstractRepository<Setting, SettingModel,
   }
 
   @Override
-  public SettingModel transform(Setting setting) {
-    SettingModel settingModel = new SettingModel();
+  public SettingModelBase transform(Setting setting) {
+    SettingModelBase settingModel = new SettingModelBase();
     settingModel.fromEntity(setting);
     return settingModel;
   }
 
   @Override
-  public Setting transform(SettingModel settingModel) {
+  public Setting transform(SettingModelBase settingModel) {
     Setting setting = settingModel.toEntity();
     return setting;
   }
 
   @Override
-  public void beforeInsert(SettingModel settingModel) {
+  public void beforeInsert(SettingModelBase settingModel) {
     super.beforeInsert(settingModel);
     settingModel.setDefaultValue();
   }
 
   @Override
-  public Iterable<SettingModel> findMany(String where, String order) {
+  public Iterable<SettingModelBase> findMany(String where, String order) {
     return null;
   }
 
   @Override
-  public SettingModel findOneById(String id) {
+  public SettingModelBase findOneById(String id) {
     return null;
   }
 
   @Override
-  public Iterable<SettingModel> findManyById(Iterable<String> ids) {
+  public Iterable<SettingModelBase> findManyById(Iterable<String> ids) {
     return null;
   }
 
   @Override
-  public Iterable<SettingModel> findAll(String order) {
+  public Iterable<SettingModelBase> findAll(String order) {
     return null;
   }
 
   @Override
-  public Iterable<SettingModel> findPage(String order, Integer pageSize) {
+  public Iterable<SettingModelBase> findPage(String order, Integer pageSize) {
     return null;
   }
 
   @Override
-  public SettingModel insertOne(SettingModel settingModel) {
+  public SettingModelBase insertOne(SettingModelBase settingModel) {
     return null;
   }
 
   @Override
-  public Iterable<SettingModel> insertMany(Iterable<SettingModel> list) {
+  public Iterable<SettingModelBase> insertMany(Iterable<SettingModelBase> list) {
     return null;
   }
 
   @Override
-  public SettingModel updateOne(SettingModel settingModel) {
+  public SettingModelBase updateOne(SettingModelBase settingModel) {
     return null;
   }
 
   @Override
-  public Iterable<SettingModel> updateMany(Iterable<SettingModel> list) {
+  public Iterable<SettingModelBase> updateMany(Iterable<SettingModelBase> list) {
     return null;
   }
 
   @Override
-  public SettingModel deleteOne(SettingModel settingModel) {
+  public SettingModelBase deleteOne(SettingModelBase settingModel) {
     return null;
   }
 
   @Override
-  public Iterable<SettingModel> deleteMany(Iterable<SettingModel> list) {
+  public Iterable<SettingModelBase> deleteMany(Iterable<SettingModelBase> list) {
     return null;
   }
 
   @Override
-  public SettingModel removeOne(SettingModel settingModel) {
+  public SettingModelBase removeOne(SettingModelBase settingModel) {
     return null;
   }
 
   @Override
-  public Iterable<SettingModel> removeMany(Iterable<SettingModel> list) {
+  public Iterable<SettingModelBase> removeMany(Iterable<SettingModelBase> list) {
     return null;
   }
 
@@ -111,8 +111,5 @@ public class SettingRepository extends AbstractRepository<Setting, SettingModel,
     return null;
   }
 
-  @Override
-  public Integer findIndex() {
-    return null;
-  }
+
 }

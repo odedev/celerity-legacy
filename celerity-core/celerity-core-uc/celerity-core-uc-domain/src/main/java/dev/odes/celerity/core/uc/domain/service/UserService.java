@@ -29,8 +29,13 @@ public class UserService {
     return this.userRepository.findOne();
   }
 
+  public List<UserModel> findAll() {
+    return this.userRepository.findAll();
+  }
+
+
   public List<UserModel> find() {
-    return this.userRepository.find();
+    return this.userRepository.findAll();
   }
 
   public User insertOne(User user) {

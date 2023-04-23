@@ -25,8 +25,8 @@ public class UserRepository {
     return this.userPersistence.findMany("", "");
   }
 
-  public List<UserModel> find() {
-    List<User> users = this.userPersistence.findMany("", "");
+  public List<UserModel> findAll() {
+    List<User> users = this.userPersistence.findAll("", "");
 
     List<UserModel> userModelList = new ArrayList<>();
     users.forEach(user -> {

@@ -150,11 +150,23 @@
     SELECT
     <include refid="column"/>
     FROM `uc_user`
-    <if test="where != null and where != ''">
-      <where>
-        ${where}
-      </where>
-    </if>
+<!--    <if test="where != null and where != ''">-->
+<!--      <where>-->
+<!--        ${where}-->
+<!--      </where>-->
+<!--    </if>-->
+    <choose>
+      <when test="where != null and where != ''">
+        <where>
+          ${where} AND deleted_at is null
+        </where>
+      </when>
+      <otherwise>
+        <where>
+          deleted_at is null
+        </where>
+      </otherwise>
+    </choose>
 <!--    <if test="order != null and order != ''">-->
 <!--      ORDER BY ${order}-->
 <!--    </if>-->

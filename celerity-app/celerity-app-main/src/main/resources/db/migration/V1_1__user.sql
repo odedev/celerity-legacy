@@ -1,5 +1,5 @@
 
-CREATE TABLE `user` (
+CREATE TABLE `uc_user` (
   `id` varchar(32) NOT NULL COMMENT '主键ID',
   `code` varchar(32) NOT NULL COMMENT '编码',
   `username` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名',
@@ -14,4 +14,4 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);

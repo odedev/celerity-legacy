@@ -22,7 +22,12 @@ public class UserController {
   public ResponseData find() {
     User userModel = this.userService.findOne();
     List<User> users = this.userService.findMany();
-    List<UserModel> userModelList = this.userService.find();
+    return new ResponseData(users);
+  }
+
+  @GetMapping(path = "/all")
+  public ResponseData findAll() {
+    List<UserModel> userModelList = this.userService.findAll();
     return new ResponseData(userModelList);
   }
 
