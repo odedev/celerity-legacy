@@ -18,4 +18,9 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
   public List<M> findPage() {
     return null;
   }
+
+  @Override
+  public Iterable<M> findTree(String where, String order) {
+    return null;
+  }
 }

@@ -5,7 +5,7 @@ public enum DataTypeEnum {
   STRING(1, "String"),
   TEXT(2, "Text"),
   INTEGER(3, "Integer"),
-  DECIMAL(4, "Decimal"),
+  FLOAT(4, "Float"),
   DATE(5, "Date"),
   ENUM(6, "Enum"),
   ENTITY(7, "Entity"),

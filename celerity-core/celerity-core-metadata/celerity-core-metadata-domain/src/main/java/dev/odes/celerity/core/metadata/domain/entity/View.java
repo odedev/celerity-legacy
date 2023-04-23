@@ -13,6 +13,12 @@ public class View {
   private String name;
   private String path;
 
+  /**
+   * 是否主菜单, 为 true 则显示在菜单列表
+   * default: true
+   */
+  private Boolean isMasterMenu;
+
   public String getId() {
     return id;
   }

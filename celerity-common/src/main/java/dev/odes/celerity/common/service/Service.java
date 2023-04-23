@@ -6,4 +6,6 @@ public interface Service<T> {
 
   List<T> findPage();
 
+  public Iterable<T> findTree(String where, String order);
+
 }

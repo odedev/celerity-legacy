@@ -25,7 +25,7 @@ public class UserPersistenceMybatis implements UserPersistence {
 
   @Override
   public User findOne(Object where, Object order) {
-    return this.userMapper.findOne(where.toString(), order.toString());
+    return this.userMapper.findOne(where.toString());
   }
 
   @Override

@@ -14,9 +14,9 @@
 + [Vue Router](https://router.vuejs.org/zh/)
 + [Pinia](https://pinia.vuejs.org/zh/)
 + [VueUse](https://vueuse.org/)
-+ [Nuxt](https://nuxt.com/)
++ [ArcoDesign](https://arco.design/vue/docs/start)
 + [Ant Design of Vue](https://antdv.com/)
-+ [Surely Vue](https://surely.cool/)
++ [Nuxt](https://nuxt.com/)
 + [Vite](https://vitejs.dev/)
 
 ### Backend

@@ -126,11 +126,23 @@
     SELECT
     <include refid="column"/>
     FROM `uc_user`
-    <if test="where != null and where != ''">
-      <where>
-        ${where}
-      </where>
-    </if>
+<!--    <if test="where != null and where != ''">-->
+<!--      <where>-->
+<!--        ${where}-->
+<!--      </where>-->
+<!--    </if>-->
+    <choose>
+      <when test="where != null and where != ''">
+        <where>
+          ${where} AND deleted_at is null
+        </where>
+      </when>
+      <otherwise>
+        <where>
+          deleted_at is null
+        </where>
+      </otherwise>
+    </choose>
     LIMIT 1
   </select>
 
@@ -156,6 +168,28 @@
     </choose>
   </select>
 
+  <select id="findAll" resultMap="resultMap" resultType="dev.odes.celerity.core.uc.domain.entity.User">
+    SELECT
+    <include refid="column"/>
+    FROM `uc_user`
+    <if test="where != null and where != ''">
+      <where>
+        ${where}
+      </where>
+    </if>
+    <!--    <if test="order != null and order != ''">-->
+    <!--      ORDER BY ${order}-->
+    <!--    </if>-->
+    <choose>
+      <when test="order != null and order != ''">
+        ORDER BY ${order}
+      </when>
+      <otherwise>
+        ORDER BY code
+      </otherwise>
+    </choose>
+  </select>
+
   <insert id="insertOne" parameterType="dev.odes.celerity.core.uc.domain.entity.User">
     INSERT INTO `uc_user`
     (<include refid="insertColumn"/>)
@@ -167,7 +201,7 @@
     INSERT INTO `uc_user`
     (<include refid="insertColumn"/>)
     VALUES
-        <foreach collection="users" item="user" separator=",">
+        <foreach collection="list" item="user" separator=",">
           (<include refid="insertEntityValue"/>)
         </foreach>
   </insert>

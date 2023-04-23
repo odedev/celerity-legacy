@@ -3,12 +3,11 @@ package dev.odes.celerity.common.repository;
 public interface Repository<M> {
   public M findOne(String where);
   public Iterable<M> findMany(String where, String order);
+  public Iterable<M> findPage(String order, Integer pageSize);
+  public Iterable<M> findAll(String order);
+
   public M findOneById(String id);
   public Iterable<M> findManyById(Iterable<String> ids);
-  public Iterable<M> findAll(String order);
-  public Iterable<M> findPage(String order, Integer pageSize);
-
-//  public Iterable<M> findTree(String where, String order);
 
   public M insertOne(M m);
   public Iterable<M> insertMany(Iterable<M> list);
@@ -24,7 +23,7 @@ public interface Repository<M> {
 
   public Integer count();
   public Boolean exist();
-  public Integer findIndex();
+//  public Integer findIndex();
 
   default void setDefaultValue() {}
   default void validate() {}
@@ -36,6 +35,8 @@ public interface Repository<M> {
   default void updated() {}
   default void beforeDelete() {}
   default void deleted() {}
+  default void beforeRemove() {}
+  default void removed() {}
 
   default void setDefaultValue(M m) {}
   default void setDefaultValue(Iterable<M> list) {}

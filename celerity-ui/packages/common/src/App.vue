@@ -14,7 +14,16 @@
   <CeMain>
     <CeNav>
       CeNav
-
+      <i>
+        <svg width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M43 36a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2a1 1 0 011-1h38zM13.81 17.575a1.19 1.19 0 011.184 1.068l.006.121v10.234a1.19 1.19 0 01-1.69 1.08l-.114-.061L4.708 24.9a1.19 1.19 0 01-.107-1.965l.107-.073 8.488-5.117a1.19 1.19 0 01.615-.17zM43 22a1 1 0 011 1v2a1 1 0 01-1 1H23a1 1 0 01-1-1v-2a1 1 0 011-1h20zm0-14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V9a1 1 0 011-1h38z" fill="currentColor"/>
+        </svg>
+      </i>
+      <i>
+        <svg width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M43 36a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2a1 1 0 011-1h38zM6.19 17.7c.216 0 .428.06.614.172l8.488 5.117a1.19 1.19 0 010 2.037l-8.488 5.117A1.19 1.19 0 015 29.124V18.891c0-.658.532-1.19 1.19-1.19zM43 22a1 1 0 011 1v2a1 1 0 01-1 1H23a1 1 0 01-1-1v-2a1 1 0 011-1h20zm0-14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V9a1 1 0 011-1h38z" fill="currentColor"/>
+        </svg>
+      </i>
     </CeNav>
     <CePage>
       <CeView>
