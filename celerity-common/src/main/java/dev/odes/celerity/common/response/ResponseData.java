@@ -4,14 +4,14 @@ package dev.odes.celerity.common.response;
 public class ResponseData {
   private String title;
   private String message;
-  private Integer code;
+  private Integer status;
   private Boolean isOk;
   private Object data;
 
   public ResponseData(Object data) {
     this.setTitle("");
     this.setMessage("");
-    this.setCode(200);
+    this.setStatus(200);
     this.setIsOk(true);
     this.setData(data);
   }
@@ -19,7 +19,7 @@ public class ResponseData {
   public ResponseData(String title, String message) {
     this.setTitle(title);
     this.setMessage(message);
-    this.setCode(200);
+    this.setStatus(200);
     this.setIsOk(true);
     this.setData(null);
   }
@@ -27,15 +27,15 @@ public class ResponseData {
   public ResponseData(String title, String message, Object data) {
     this.setTitle(title);
     this.setMessage(message);
-    this.setCode(200);
+    this.setStatus(200);
     this.setIsOk(true);
     this.setData(data);
   }
 
-  public ResponseData(String title, String message, Integer code) {
+  public ResponseData(String title, String message, Integer status) {
     this.setTitle(title);
     this.setMessage(message);
-    this.setCode(code);
+    this.setStatus(status);
     this.setIsOk(true);
     this.setData(null);
   }
@@ -56,12 +56,12 @@ public class ResponseData {
     this.message = message;
   }
 
-  public Integer getCode() {
-    return code;
+  public Integer getStatus() {
+    return status;
   }
 
-  public void setCode(Integer code) {
-    this.code = code;
+  public void setStatus(Integer status) {
+    this.status = status;
   }
 
   public Boolean getIsOk() {

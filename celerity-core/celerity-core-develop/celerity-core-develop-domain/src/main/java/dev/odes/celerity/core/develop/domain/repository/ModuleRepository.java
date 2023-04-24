@@ -4,6 +4,7 @@ import dev.odes.celerity.common.repository.AbstractRepository;
 import dev.odes.celerity.core.develop.domain.entity.Module;
 import dev.odes.celerity.core.develop.domain.model.ModuleModel;
 import dev.odes.celerity.core.develop.domain.persistence.ModulePersistence;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * version: 1.0.0
  * description:
  */
+@Repository
 public class ModuleRepository extends AbstractRepository<Module, ModuleModel, ModulePersistence> {
   private final ModulePersistence modulePersistence;
 

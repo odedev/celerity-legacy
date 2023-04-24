@@ -3,14 +3,14 @@ package dev.odes.celerity.common.response;
 public class ResponseError {
   private String title;
   private String message;
-  private Integer code;
+  private Integer status;
   private Boolean isOk;
   private Object error;
 
   public ResponseError(Object error) {
     this.setTitle("");
     this.setMessage("");
-    this.setCode(400);
+    this.setStatus(400);
     this.setIsOk(false);
     this.setError(error);
   }
@@ -18,7 +18,7 @@ public class ResponseError {
   public ResponseError(String title, String message) {
     this.setTitle(title);
     this.setMessage(message);
-    this.setCode(400);
+    this.setStatus(400);
     this.setIsOk(false);
     this.setError(null);
   }
@@ -26,15 +26,15 @@ public class ResponseError {
   public ResponseError(String title, String message, Object error) {
     this.setTitle(title);
     this.setMessage(message);
-    this.setCode(400);
+    this.setStatus(400);
     this.setIsOk(false);
     this.setError(error);
   }
 
-  public ResponseError(String title, String message, Integer code) {
+  public ResponseError(String title, String message, Integer status) {
     this.setTitle(title);
     this.setMessage(message);
-    this.setCode(code);
+    this.setStatus(status);
     this.setIsOk(false);
     this.setError(null);
   }
@@ -55,12 +55,12 @@ public class ResponseError {
     this.message = message;
   }
 
-  public Integer getCode() {
-    return code;
+  public Integer getStatus() {
+    return status;
   }
 
-  public void setCode(Integer code) {
-    this.code = code;
+  public void setStatus(Integer status) {
+    this.status = status;
   }
 
   public Boolean getIsOk() {

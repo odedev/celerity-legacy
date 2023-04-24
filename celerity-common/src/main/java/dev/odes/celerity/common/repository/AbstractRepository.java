@@ -5,6 +5,7 @@ import dev.odes.celerity.common.model.AbstractModel;
 import dev.odes.celerity.common.parameter.Parameter;
 import dev.odes.celerity.common.persistence.Persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,7 +32,10 @@ public abstract class AbstractRepository<E extends AbstractEntity, M extends Abs
 
   @Override
   public List<M> findMany(Parameter parameter) {
-    return null;
+    List<E> list = this.persistence.findMany(parameter);
+    List<M> mList = new ArrayList<>();
+    list.forEach(e -> mList.add(transform(e)));
+    return mList;
   }
 
   @Override

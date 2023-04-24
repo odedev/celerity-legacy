@@ -17,7 +17,7 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
 
   @Override
   public M findOne(Parameter parameter) {
-    return null;
+    return this.repository.findOne(parameter);
   }
 
   @Override

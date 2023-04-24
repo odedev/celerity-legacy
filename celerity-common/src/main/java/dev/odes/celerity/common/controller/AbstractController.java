@@ -3,6 +3,8 @@ package dev.odes.celerity.common.controller;
 import dev.odes.celerity.common.entity.AbstractEntity;
 import dev.odes.celerity.common.model.AbstractModel;
 import dev.odes.celerity.common.parameter.Parameter;
+import dev.odes.celerity.common.persistence.Persistence;
+import dev.odes.celerity.common.repository.AbstractRepository;
 import dev.odes.celerity.common.repository.Repository;
 import dev.odes.celerity.common.response.ResponseData;
 import dev.odes.celerity.common.service.AbstractService;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public abstract class AbstractController<E extends AbstractEntity, M extends AbstractModel<E>, R extends Repository<M>, S extends AbstractService<E, M, R>> implements Controller<E, M> {
+public abstract class AbstractController<E extends AbstractEntity, M extends AbstractModel<E>, P extends Persistence<E>, R extends AbstractRepository<E, M, P>, S extends AbstractService<E, M, R>> implements Controller<E, M> {
   private final S service;
 
   public AbstractController(S service) {

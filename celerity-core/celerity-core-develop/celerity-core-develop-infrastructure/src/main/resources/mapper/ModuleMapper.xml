@@ -4,35 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dev.odes.celerity.core.develop.infrastructure.mapper.ModuleMapper">
   <sql id="tableColumn">
-    `uc_user`.`id`,
-    `uc_user`.`username`,
-    `uc_user`.`password`,
-    `uc_user`.`code`,
-    `uc_user`.`name`,
-    `uc_user`.`email`,
-    `uc_user`.`phone`,
-    `uc_user`.`type`,
-    `uc_user`.`status`,
-    `uc_user`.`is_admin`
+    `develop_module`.`id`,
+    `develop_module`.`code`,
+    `develop_module`.`name`,
+    `develop_module`.`description`,
+    `develop_module`.`module_type`,
+    `develop_module`.`persistence_type`,
+    `develop_module`.`remark`
   </sql>
   <sql id="column">
     `id`,
-    `username`,
-    `password`,
     `code`,
     `name`,
-    `email`,
-    `phone`,
-    `type`,
-    `status`,
-    `is_admin`
+    `description`,
+    `module_type`,
+    `persistence_type`,
+    `remark`
   </sql>
 
   <sql id="insertColumn">
     <trim suffixOverrides=",">
       `id`,
-      <if test="username != null">`username`,</if>
-      <if test="password != null">`password`,</if>
       <if test="code != null">`code`,</if>
       <if test="name != null">`name`,</if>
       <if test="email != null">`email`,</if>
@@ -45,8 +37,6 @@
   <sql id="insertValue">
     <trim suffixOverrides=",">
       #{id},
-      <if test="username != null">#{username},</if>
-      <if test="password != null">#{password},</if>
       <if test="code != null">#{code},</if>
       <if test="name != null">#{name},</if>
       <if test="email != null">#{email},</if>
@@ -59,8 +49,6 @@
   <sql id="insertEntityValue">
     <trim suffixOverrides=",">
       #{user.id},
-      <if test="user.username != null">#{user.username},</if>
-      <if test="user.password != null">#{user.password},</if>
       <if test="user.code != null">#{user.code},</if>
       <if test="user.name != null">#{user.name},</if>
       <if test="user.email != null">#{user.email},</if>
@@ -73,8 +61,6 @@
 
   <sql id="updateColumn">
     <trim prefix="set" suffixOverrides=",">
-      <if test="username != null">`username` = #{username},</if>
-      <if test="password != null">`password` = #{password},</if>
       <if test="code != null">`code` = #{code},</if>
       <if test="name != null">`name` = #{name},</if>
       <if test="email != null">`email` = #{email},</if>
@@ -86,8 +72,6 @@
   </sql>
   <sql id="updateEntityColumn">
     <trim prefix="set" suffixOverrides=",">
-      <if test="user.username != null">`username` = #{user.username},</if>
-      <if test="user.password != null">`password` = #{user.password},</if>
       <if test="user.code != null">`code` = #{user.code},</if>
       <if test="user.name != null">`name` = #{user.name},</if>
       <if test="user.email != null">`email` = #{user.email},</if>
@@ -109,10 +93,8 @@
     </trim>
   </sql>
 
-  <resultMap id="resultMap" type="dev.odes.celerity.core.uc.domain.entity.User">
+  <resultMap id="resultMap" type="dev.odes.celerity.core.develop.domain.entity.Module">
     <id property="id" column="id"/>
-    <result property="username" column="username"/>
-    <result property="password" column="password"/>
     <result property="code" column="code"/>
     <result property="name" column="name"/>
     <result property="email" column="email"/>
@@ -122,7 +104,7 @@
     <result property="isAdmin" column="is_admin"/>
   </resultMap>
 
-  <select id="findOne" resultMap="resultMap" resultType="dev.odes.celerity.core.uc.domain.entity.User">
+  <select id="findOne" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.Module">
     SELECT
     <include refid="column"/>
     FROM `uc_user`
@@ -146,10 +128,10 @@
     LIMIT 1
   </select>
 
-  <select id="findMany" resultMap="resultMap" resultType="dev.odes.celerity.core.uc.domain.entity.User">
+  <select id="findMany" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.Module">
     SELECT
     <include refid="column"/>
-    FROM `uc_user`
+    FROM `develop_module`
     <if test="where != null and where != ''">
       <where>
         ${where}
@@ -168,10 +150,10 @@
     </choose>
   </select>
 
-  <select id="findAll" resultMap="resultMap" resultType="dev.odes.celerity.core.uc.domain.entity.User">
+  <select id="findAll" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.Module">
     SELECT
     <include refid="column"/>
-    FROM `uc_user`
+    FROM `develop_module`
     <if test="where != null and where != ''">
       <where>
         ${where}
@@ -190,15 +172,15 @@
     </choose>
   </select>
 
-  <insert id="insertOne" parameterType="dev.odes.celerity.core.uc.domain.entity.User">
-    INSERT INTO `uc_user`
+  <insert id="insertOne" parameterType="dev.odes.celerity.core.develop.domain.entity.Module">
+    INSERT INTO `develop_module`
     (<include refid="insertColumn"/>)
     VALUES
     (<include refid="insertValue"/>)
   </insert>
 
   <insert id="insertMany" parameterType="java.util.List">
-    INSERT INTO `uc_user`
+    INSERT INTO `develop_module`
     (<include refid="insertColumn"/>)
     VALUES
         <foreach collection="list" item="user" separator=",">
@@ -206,7 +188,7 @@
         </foreach>
   </insert>
 
-  <update id="updateOne" parameterType="dev.odes.celerity.core.uc.domain.entity.User">
+  <update id="updateOne" parameterType="dev.odes.celerity.core.develop.domain.entity.Module">
     UPDATE `uc_user`
     <include refid="updateColumn"/>
     WHERE id=#{id}
@@ -227,11 +209,11 @@
   </update>
 
   <delete id="removeOne" parameterType="java.lang.String">
-    DELETE FROM `uc_user` WHERE id=#{id}
+    DELETE FROM `develop_module` WHERE id=#{id}
   </delete>
 
   <select id="count" resultType="java.lang.Integer">
-    SELECT COUNT(1) FROM `uc_user`
+    SELECT COUNT(1) FROM `develop_module`
     <if test="where != null and where != ''">
       ${where}
     </if>
@@ -239,7 +221,7 @@
   </select>
 
   <select id="exist" resultType="java.lang.Integer">
-    SELECT COUNT(1) FROM `uc_user`
+    SELECT COUNT(1) FROM `develop_module`
     <if test="where != null and where != ''">
       ${where}
     </if>
@@ -248,7 +230,7 @@
 
   <select id="findIndex" resultType="java.lang.Integer">
     SELECT num FROM (
-    SELECT D.id, (@row_number:=@row_number+1) as num FROM (SELECT `uc_user`.id FROM `uc_user`
+    SELECT D.id, (@row_number:=@row_number+1) as num FROM (SELECT `develop_module`.id FROM `develop_module`
     <if test="where != null and where != ''">
       ${where}
     </if>

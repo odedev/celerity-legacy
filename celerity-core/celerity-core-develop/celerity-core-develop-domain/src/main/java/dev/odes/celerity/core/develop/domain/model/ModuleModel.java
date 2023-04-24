@@ -11,6 +11,8 @@ import dev.odes.celerity.core.develop.domain.entity.Module;
  */
 public class ModuleModel extends ModuleModelBase {
 
+  public ModuleModel() {}
+
   public ModuleModel(Module module) {
     this.fromEntity(module);
   }

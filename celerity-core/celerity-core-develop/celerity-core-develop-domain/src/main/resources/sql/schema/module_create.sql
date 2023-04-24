@@ -1,15 +1,17 @@
-CREATE TABLE `develop_module` (
-  `id` varchar(32) NOT NULL COMMENT '主键ID',
-  `code` varchar(32) NOT NULL COMMENT '编码',
-  `username` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名',
-  `password` varchar(255) NOT NULL DEFAULT '' COMMENT '密码',
-  `phone` varchar(11) DEFAULT '' COMMENT '手机',
-  `email` varchar(64) DEFAULT '' COMMENT '邮箱',
-  `type` tinyint DEFAULT '1' COMMENT '用户类型',
-  `status` tinyint DEFAULT '0' COMMENT '状态',
-  `is_admin` tinyint(1) DEFAULT '0' COMMENT '是否管理员',
-  `salt` varchar(255) NOT NULL DEFAULT '' COMMENT '密码加盐',
-  `remark` varchar(255) DEFAULT '' COMMENT '备注',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `code` (`code`)
+CREATE TABLE IF NOT EXISTS `develop_module` (
+    `id` varchar(32) NOT NULL COMMENT 'ID',
+    `code` varchar(32) NOT NULL COMMENT '编码',
+    `name` varchar(32) NOT NULL DEFAULT '' COMMENT '名称',
+    `description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+    `module_type` tinyint DEFAULT '1' COMMENT '模块类型',
+    `persistence_type` tinyint DEFAULT '0' COMMENT '持久化类型',
+    `remark` varchar(255) DEFAULT '' COMMENT '备注',
+    `created_by` VARCHAR(32) NULL DEFAULT NULL COMMENT '创建人',
+    `created_at` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+    `updated_by` VARCHAR(32) NULL DEFAULT NULL COMMENT '更新人',
+    `updated_at` DATETIME NULL DEFAULT NULL COMMENT '更新时间',
+    `deleted_by` VARCHAR(32) NULL DEFAULT NULL COMMENT '删除人',
+    `deleted_at` DATETIME NULL DEFAULT NULL COMMENT '删除时间',
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `code` (`code`)
 );

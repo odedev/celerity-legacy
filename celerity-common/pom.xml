@@ -9,7 +9,6 @@
     <version>1.0.0</version>
   </parent>
 
-<!--  <groupId>dev.odes</groupId>-->
   <artifactId>celerity-common</artifactId>
   <version>1.0.0</version>
   <name>celerity-common</name>
@@ -54,6 +53,21 @@
       <version>3.12.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.fastjson2</groupId>
+      <artifactId>fastjson2</artifactId>
+      <version>2.0.29</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.fastjson2</groupId>
+      <artifactId>fastjson2-extension-spring6</artifactId>
+      <version>2.0.29</version>
+    </dependency>
 
   </dependencies>
 </project>

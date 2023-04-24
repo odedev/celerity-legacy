@@ -10,17 +10,20 @@ import java.util.List;
 public class ParameterAdapter {
   public static String getWhere(Parameter parameter) {
     StringBuilder where = new StringBuilder();
+
     List<ParameterProperty> properties = parameter.getProperties();
     ConditionEnum conditionType = parameter.getCondition();
 
-    properties.forEach(parameterProperty -> {
-      String key = parameterProperty.getKey();
-      Object value = parameterProperty.getValue();
-      where.append(key);
-      where.append("=");
-      where.append(value);
-      where.append(conditionType);
-    });
+    if (properties != null) {
+      properties.forEach(parameterProperty -> {
+        String key = parameterProperty.getKey();
+        Object value = parameterProperty.getValue();
+        where.append(key);
+        where.append("=");
+        where.append(value);
+        where.append(conditionType);
+      });
+    }
 
     return where.toString();
   }
@@ -29,9 +32,11 @@ public class ParameterAdapter {
     StringBuilder order = new StringBuilder();
 
     List<ParameterOrder> orders = parameter.getOrders();
-    orders.forEach(parameterOrder -> {
+    if (orders != null) {
+      orders.forEach(parameterOrder -> {
 
-    });
+      });
+    }
 
     return order.toString();
   }
