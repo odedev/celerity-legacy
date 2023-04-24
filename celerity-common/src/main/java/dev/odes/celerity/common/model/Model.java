@@ -1,12 +1,13 @@
 package dev.odes.celerity.common.model;
 
-public interface Model<T> {
-  public void fromEntity(T t);
-  public T toEntity();
+public interface Model<E> {
+  void fromEntity(E e);
+  E toEntity();
 
   default void setDefaultValue() {}
-//  default void setGenericValue() {}
   default void validate() {}
+
+//  default void setGenericValue() {}
 
 //  default void beforeFind(String where, String order) {}
 //  default void found() {}

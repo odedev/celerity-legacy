@@ -1,5 +1,7 @@
 package dev.odes.celerity.core.develop.domain.model;
 
+import dev.odes.celerity.core.develop.domain.entity.Module;
+
 /**
  * package: dev.odes.celerity.core.develop.domain.model
  * class: ModuleModel
@@ -8,6 +10,11 @@ package dev.odes.celerity.core.develop.domain.model;
  * description:
  */
 public class ModuleModel extends ModuleModelBase {
+
+  public ModuleModel(Module module) {
+    this.fromEntity(module);
+  }
+
   @Override
   public void setDefaultValue() {
     super.setDefaultValue();

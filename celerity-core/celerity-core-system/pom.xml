@@ -22,7 +22,7 @@
   <modules>
     <module>celerity-core-system-app</module>
     <module>celerity-core-system-domain</module>
-    <module>celerity-core-system-persistence</module>
+    <module>celerity-core-system-infrastructure</module>
   </modules>
 
   <dependencies>

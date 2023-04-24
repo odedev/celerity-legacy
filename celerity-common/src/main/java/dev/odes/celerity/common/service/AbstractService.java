@@ -2,6 +2,7 @@ package dev.odes.celerity.common.service;
 
 import dev.odes.celerity.common.entity.AbstractEntity;
 import dev.odes.celerity.common.model.AbstractModel;
+import dev.odes.celerity.common.parameter.Parameter;
 import dev.odes.celerity.common.repository.Repository;
 
 import java.util.List;
@@ -15,12 +16,12 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
   }
 
   @Override
-  public List<M> findPage() {
+  public List<M> findPage(Parameter parameter) {
     return null;
   }
 
   @Override
-  public Iterable<M> findTree(String where, String order) {
+  public List<M> findTree(Parameter parameter) {
     return null;
   }
 }

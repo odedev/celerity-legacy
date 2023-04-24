@@ -16,10 +16,10 @@ import java.util.List;
  * description:
  */
 @Repository
-public class UserPersistenceMybatis implements UserPersistence {
+public class UserPersistenceMysql implements UserPersistence {
   private final UserMapper userMapper;
 
-  public UserPersistenceMybatis(UserMapper userMapper) {
+  public UserPersistenceMysql(UserMapper userMapper) {
     this.userMapper = userMapper;
   }
 

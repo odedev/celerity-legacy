@@ -30,11 +30,13 @@
     <module>celerity-persistence-mysql</module>
     <module>celerity-persistence-mariadb</module>
     <module>celerity-persistence-postgresql</module>
-
-
   </modules>
 
   <dependencies>
-
+    <dependency>
+      <groupId>dev.odes</groupId>
+      <artifactId>celerity-common</artifactId>
+      <version>1.0.0</version>
+    </dependency>
   </dependencies>
 </project>

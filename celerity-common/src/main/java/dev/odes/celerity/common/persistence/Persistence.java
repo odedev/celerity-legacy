@@ -1,83 +1,94 @@
 package dev.odes.celerity.common.persistence;
 
+import dev.odes.celerity.common.enumeration.PersistenceTypeEnum;
+import dev.odes.celerity.common.parameter.Parameter;
+
 import java.util.List;
 
 public interface Persistence<T> {
 
   /**
+   * 获取持久化类型
+   * @return
+   */
+  PersistenceTypeEnum getPersistenceType();
+
+  /**
    * 查找一条数据, 不包括软删除的数据
    * @return
    */
-  public T findOne();
+  T findOne(Parameter parameter);
 
   /**
    * 查找多条数据, 不包括软删除的数据
    * @return
    */
-  public List<T> findMany();
+  List<T> findMany(Parameter parameter);
 
   /**
    * 分页查找多条数据, 不包括软删除的数据
-   * @param pageNumber 页数
-   * @param pageSize   页大小
    * @return
    */
-  public Iterable<T> findPage(Integer pageNumber, Integer pageSize);
+  List<T> findPage(Parameter parameter);
 
   /**
    * 查找所有数据, 包括软删除的数据
    * @return
    */
-  public List<T> findAll();
+  List<T> findAll(Parameter parameter);
 
-  public void insertOne(T t);
+  T findOneById(String id);
 
-  public void insertMany(Iterable<T> list);
+  List<T> findManyById(List<String> ids);
 
-  public void updateOne(T t);
+  void insertOne(T t);
 
-  public void updateMany(Iterable<T> list);
+  void insertMany(List<T> list);
+
+  void updateOne(T t);
+
+  void updateMany(List<T> list);
 
   /**
    * 软删除一条数据
    * @param t
    */
-  public void deleteOne(T t);
+  void deleteOne(T t);
 
   /**
    * 软删除多条数据
    * @param list
    */
-  public void deleteMany(Iterable<T> list);
+  void deleteMany(List<T> list);
 
   /**
    * 硬删除一条数据
    * @param t
    */
-  public void removeOne(T t);
+  void removeOne(T t);
 
   /**
    * 硬删除多条数据
    * @param list
    */
-  public void removeMany(Iterable<T> list);
+  void removeMany(List<T> list);
 
   /**
    * 总数
    * @return
    */
-  public Integer count();
+  Integer count();
 
   /**
    * 是否存在
    * @return
    */
-  public Integer exist();
+  Integer exist();
 
   /**
    * TODO 确认功能
    * @return
    */
-  public Integer getIndex();
+  Integer getIndex();
 
 }

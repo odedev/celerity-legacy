@@ -2,7 +2,10 @@ package dev.odes.celerity.common.repository;
 
 import dev.odes.celerity.common.entity.AbstractEntity;
 import dev.odes.celerity.common.model.AbstractModel;
+import dev.odes.celerity.common.parameter.Parameter;
 import dev.odes.celerity.common.persistence.Persistence;
+
+import java.util.List;
 
 
 public abstract class AbstractRepository<E extends AbstractEntity, M extends AbstractModel<E>, P extends Persistence<E>> implements Repository<M> {
@@ -13,22 +16,95 @@ public abstract class AbstractRepository<E extends AbstractEntity, M extends Abs
   }
 
 //  public abstract Boolean isCache();
-//
-//  public abstract String getPersistenceType();
+
 
   public abstract M transform(E e);
 
   public abstract E transform(M m);
 
   @Override
-  public M findOne(String where) {
-    E e = this.persistence.findOne();
+  public M findOne(Parameter parameter) {
+    E e = this.persistence.findOne(null);
     M m = this.transform(e);
     return m;
   }
 
+  @Override
+  public List<M> findMany(Parameter parameter) {
+    return null;
+  }
 
-//  @Override
+  @Override
+  public List<M> findPage(Parameter parameter) {
+    return null;
+  }
+
+  @Override
+  public List<M> findAll(Parameter parameter) {
+    return null;
+  }
+
+  @Override
+  public M findOneById(String id) {
+    return null;
+  }
+
+  @Override
+  public List<M> findManyById(List<String> ids) {
+    return null;
+  }
+
+  @Override
+  public M insertOne(M m) {
+    return null;
+  }
+
+  @Override
+  public List<M> insertMany(List<M> list) {
+    return null;
+  }
+
+  @Override
+  public M updateOne(M m) {
+    return null;
+  }
+
+  @Override
+  public List<M> updateMany(List<M> list) {
+    return null;
+  }
+
+  @Override
+  public M deleteOne(M m) {
+    return null;
+  }
+
+  @Override
+  public List<M> deleteMany(List<M> list) {
+    return null;
+  }
+
+  @Override
+  public M removeOne(M m) {
+    return null;
+  }
+
+  @Override
+  public List<M> removeMany(List<M> list) {
+    return null;
+  }
+
+  @Override
+  public Integer count() {
+    return null;
+  }
+
+  @Override
+  public Boolean exist() {
+    return null;
+  }
+
+  //  @Override
 //  public M findOne(String where) {
 //    E e = this.persistence.findOne();
 //    return null;

@@ -6,8 +6,8 @@ spring:
     name: CelerityMain
   main:
     allow-bean-definition-overriding: true
-#  profiles:
-#    active: prod
+  profiles:
+    active: dev
   datasource:
     username: root
     password: 123456

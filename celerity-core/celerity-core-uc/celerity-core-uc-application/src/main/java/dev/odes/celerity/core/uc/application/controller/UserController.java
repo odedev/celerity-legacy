@@ -1,5 +1,6 @@
 package dev.odes.celerity.core.uc.application.controller;
 
+import dev.odes.celerity.common.parameter.Parameter;
 import dev.odes.celerity.common.response.ResponseData;
 import dev.odes.celerity.core.uc.domain.entity.User;
 import dev.odes.celerity.core.uc.domain.model.UserModel;
@@ -25,8 +26,14 @@ public class UserController {
     return new ResponseData(users);
   }
 
+  @PostMapping(path = "/many", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseData findMany(@RequestBody Parameter parameter) {
+//    List<User> users = this.userService.findMany();
+    return new ResponseData(parameter);
+  }
+
   @GetMapping(path = "/all")
-  public ResponseData findAll() {
+  public ResponseData findAll(@RequestBody Parameter parameter) {
     List<UserModel> userModelList = this.userService.findAll();
     return new ResponseData(userModelList);
   }

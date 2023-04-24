@@ -1,4 +1,6 @@
 package dev.odes.celerity.common.enumeration;
 
-public class ConditionTypeEnum {
+public enum ConditionEnum {
+  AND,
+  OR
 }
