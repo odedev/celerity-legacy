@@ -1,15 +1,20 @@
 package dev.odes.celerity.common.service;
 
+import dev.odes.celerity.common.entity.AbstractEntity;
+import dev.odes.celerity.common.model.AbstractModel;
 import dev.odes.celerity.common.parameter.Parameter;
 
 import java.util.List;
 
-public interface Service<M> {
+public interface Service<E extends AbstractEntity, M extends AbstractModel<E>> {
 
   M findOne(Parameter parameter);
   List<M> findMany(Parameter parameter);
   List<M> findPage(Parameter parameter);
   List<M> findAll(Parameter parameter);
+
+  M findOneById(String id);
+  List<M> findManyById(List<String> ids);
 
   List<M> findTree(Parameter parameter);
 

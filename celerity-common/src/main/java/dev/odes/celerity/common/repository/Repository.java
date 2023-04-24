@@ -5,28 +5,28 @@ import dev.odes.celerity.common.parameter.Parameter;
 import java.util.List;
 
 public interface Repository<M> {
-  public M findOne(Parameter parameter);
-  public List<M> findMany(Parameter parameter);
-  public List<M> findPage(Parameter parameter);
+  M findOne(Parameter parameter);
+  List<M> findMany(Parameter parameter);
+  List<M> findPage(Parameter parameter);
   List<M> findAll(Parameter parameter);
 
-  public M findOneById(String id);
-  public List<M> findManyById(List<String> ids);
+  M findOneById(String id);
+  List<M> findManyById(List<String> ids);
 
-  public M insertOne(M m);
-  public List<M> insertMany(List<M> list);
+  M insertOne(M m);
+  List<M> insertMany(List<M> list);
 
-  public M updateOne(M m);
-  public List<M> updateMany(List<M> list);
+  M updateOne(M m);
+  List<M> updateMany(List<M> list);
 
-  public M deleteOne(M m);
-  public List<M> deleteMany(List<M> list);
+  M deleteOne(M m);
+  List<M> deleteMany(List<M> list);
 
-  public M removeOne(M m);
-  public List<M> removeMany(List<M> list);
+  M removeOne(M m);
+  List<M> removeMany(List<M> list);
 
-  public Integer count();
-  public Boolean exist();
+  Integer count();
+  Boolean exist();
 //  public Integer findIndex();
 
   default void setDefaultValue() {}
