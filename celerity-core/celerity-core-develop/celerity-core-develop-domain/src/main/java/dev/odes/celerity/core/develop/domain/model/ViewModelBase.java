@@ -71,17 +71,23 @@ public class ViewModelBase extends AbstractModel<View> {
     this.module = module;
   }
 
-  public Boolean getMenu() {
+  public void setModule(String moduleId) {
+    ModuleModel module = new ModuleModel();
+    module.setId(moduleId);
+    this.module = module;
+  }
+
+  public Boolean getIsMenu() {
     return isMenu;
   }
 
-  public void setMenu(Boolean menu) {
+  public void setIsMenu(Boolean menu) {
     isMenu = menu;
   }
 
   @Override
   public void fromEntity(View view) {
-
+    this.setModule(view.getId());
   }
 
   @Override
@@ -92,6 +98,7 @@ public class ViewModelBase extends AbstractModel<View> {
     view.setName(this.getName());
     view.setPath(this.getPath());
     view.setSerialNo(this.getSerialNo());
+    view.setIsMenu(this.getIsMenu());
     view.setModule(this.getModule().getId());
     return view;
   }

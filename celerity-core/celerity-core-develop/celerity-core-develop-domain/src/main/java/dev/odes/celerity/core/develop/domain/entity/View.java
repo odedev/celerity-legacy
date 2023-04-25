@@ -73,11 +73,11 @@ public class View extends AbstractEntity {
     this.module = module;
   }
 
-  public Boolean getMenu() {
+  public Boolean getIsMenu() {
     return isMenu;
   }
 
-  public void setMenu(Boolean menu) {
+  public void setIsMenu(Boolean menu) {
     isMenu = menu;
   }
 }
