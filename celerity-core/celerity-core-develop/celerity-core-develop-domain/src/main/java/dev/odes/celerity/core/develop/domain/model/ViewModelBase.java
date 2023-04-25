@@ -99,7 +99,15 @@ public class ViewModelBase extends AbstractModel<View> {
     view.setPath(this.getPath());
     view.setSerialNo(this.getSerialNo());
     view.setIsMenu(this.getIsMenu());
-    view.setModule(this.getModule().getId());
+
+    ModuleModel module = this.getModule();
+    ViewModel parent = this.getParent();
+    if (module != null) {
+      view.setModule(module.getId());
+    }
+    if (parent != null) {
+      view.setParent(parent.getId());
+    }
     return view;
   }
 }
