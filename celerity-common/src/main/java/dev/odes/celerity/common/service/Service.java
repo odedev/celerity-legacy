@@ -8,15 +8,15 @@ import java.util.List;
 
 public interface Service<E extends AbstractEntity, M extends AbstractModel<E>> {
 
-  M findOne(Parameter parameter);
   List<M> findMany(Parameter parameter);
+  M findOne(Parameter parameter);
   List<M> findPage(Parameter parameter);
+  List<M> findTree(Parameter parameter);
   List<M> findAll(Parameter parameter);
 
-  M findOneById(String id);
   List<M> findManyById(List<String> ids);
+  M findOneById(String id);
 
-  List<M> findTree(Parameter parameter);
 
   M insertOne(M m);
   List<M> insertMany(List<M> list);

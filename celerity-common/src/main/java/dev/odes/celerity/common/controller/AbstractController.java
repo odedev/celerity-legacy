@@ -5,7 +5,6 @@ import dev.odes.celerity.common.model.AbstractModel;
 import dev.odes.celerity.common.parameter.Parameter;
 import dev.odes.celerity.common.persistence.Persistence;
 import dev.odes.celerity.common.repository.AbstractRepository;
-import dev.odes.celerity.common.repository.Repository;
 import dev.odes.celerity.common.response.ResponseData;
 import dev.odes.celerity.common.service.AbstractService;
 import org.springframework.http.MediaType;
@@ -84,8 +83,8 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
-  @PutMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseData updateOne(@PathVariable String id, @RequestBody M m) {
+  @PutMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseData updateOne(@RequestBody M m) {
     M one = this.service.updateOne(m);
     return new ResponseData(one);
   }
@@ -98,8 +97,8 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
-  @PatchMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseData deleteOne(@PathVariable String id, @RequestBody M m) {
+  @PatchMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseData deleteOne(@RequestBody M m) {
     M one = this.service.deleteOne(m);
     return new ResponseData(one);
   }
@@ -112,8 +111,8 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
-  @DeleteMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseData removeOne(@PathVariable String id, @RequestBody M m) {
+  @DeleteMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseData removeOne(@RequestBody M m) {
     M one = this.service.removeOne(m);
     return new ResponseData(one);
   }

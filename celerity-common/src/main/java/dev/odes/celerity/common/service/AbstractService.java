@@ -16,13 +16,13 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
   }
 
   @Override
-  public M findOne(Parameter parameter) {
-    return this.repository.findOne(parameter);
+  public List<M> findMany(Parameter parameter) {
+    return this.repository.findMany(parameter);
   }
 
   @Override
-  public List<M> findMany(Parameter parameter) {
-    return this.repository.findMany(parameter);
+  public M findOne(Parameter parameter) {
+    return this.repository.findOne(parameter);
   }
 
   @Override
@@ -31,13 +31,13 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
   }
 
   @Override
-  public List<M> findAll(Parameter parameter) {
-    return this.repository.findAll(parameter);
+  public List<M> findTree(Parameter parameter) {
+    return this.repository.findMany(parameter);
   }
 
   @Override
-  public M findOneById(String id) {
-    return this.repository.findOneById(id);
+  public List<M> findAll(Parameter parameter) {
+    return this.repository.findAll(parameter);
   }
 
   @Override
@@ -46,8 +46,11 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
   }
 
   @Override
-  public List<M> findTree(Parameter parameter) {
-    return this.repository.findMany(parameter);
+  public M findOneById(String id) {
+    if (id == null) {
+      return null;
+    }
+    return this.repository.findOneById(id);
   }
 
   @Override
@@ -62,6 +65,10 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
 
   @Override
   public M updateOne(M m) {
+    String id = m.getId();
+    if (id == null) {
+      return null;
+    }
     return this.repository.insertOne(m);
   }
 
@@ -72,6 +79,10 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
 
   @Override
   public M deleteOne(M m) {
+    String id = m.getId();
+    if (id == null) {
+      return null;
+    }
     return this.repository.deleteOne(m);
   }
 
@@ -82,6 +93,10 @@ public class AbstractService<E extends AbstractEntity, M extends AbstractModel<E
 
   @Override
   public M removeOne(M m) {
+    String id = m.getId();
+    if (id == null) {
+      return null;
+    }
     return this.repository.removeOne(m);
   }
 

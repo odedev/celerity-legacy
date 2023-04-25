@@ -47,8 +47,27 @@ public interface Repository<M> {
   default void validate(M m) {}
   default void validate(List<M> list) {}
 
+  default void beforeFind(Parameter parameter) {}
+  default void found(M m) {}
+  default void found(List<M> list) {}
+
   default void beforeInsert(M m) {}
   default void beforeInsert(List<M> list) {}
   default void inserted(M m) {}
   default void inserted(List<M> list) {}
+
+  default void beforeUpdate(M m) {}
+  default void beforeUpdate(List<M> list) {}
+  default void updated(M m) {}
+  default void updated(List<M> list) {}
+
+  default void beforeDelete(M m) {}
+  default void beforeDelete(List<M> list) {}
+  default void deleted(M m) {}
+  default void deleted(List<M> list) {}
+
+  default void beforeRemove(M m) {}
+  default void beforeRemove(List<M> list) {}
+  default void removed(M m) {}
+  default void removed(List<M> list) {}
 }

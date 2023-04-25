@@ -1,6 +1,9 @@
 package dev.odes.celerity.common.model;
 
 public interface Model<E> {
+  String getId();
+  void setId(String id);
+
   void fromEntity(E e);
   E toEntity();
 

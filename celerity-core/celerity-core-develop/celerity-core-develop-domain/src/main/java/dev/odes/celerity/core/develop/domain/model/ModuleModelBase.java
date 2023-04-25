@@ -11,10 +11,12 @@ public class ModuleModelBase extends AbstractModel<Module> {
   private Integer moduleType;
   private Integer persistenceType;
 
+  @Override
   public String getId() {
     return id;
   }
 
+  @Override
   public void setId(String id) {
     this.id = id;
   }

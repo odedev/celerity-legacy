@@ -1,6 +1,6 @@
-package dev.odes.celerity.core.${templateContext.entity.code.toLowerCase()}.domain.model;
+package dev.odes.celerity.core.develop.domain.model;
 
-import dev.odes.celerity.core.${templateContext.entity.code.toLowerCase()}.domain.entity.${templateContext.entity.code};
+import dev.odes.celerity.core.develop.domain.entity.View;
 
 public class ViewModel extends ViewModelBase {
   public ViewModel() {
