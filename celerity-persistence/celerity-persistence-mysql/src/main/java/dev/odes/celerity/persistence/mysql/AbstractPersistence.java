@@ -47,6 +47,9 @@ public abstract class AbstractPersistence<T, M extends GenericMapper<T>> impleme
 
   @Override
   public T findOneById(String id) {
+    if (id == null || id.isEmpty()) {
+      return null;
+    }
     String where = "id=" + id;
     // TODO: 查询缓存
     T t = this.mapper.findOne(where);
@@ -55,6 +58,9 @@ public abstract class AbstractPersistence<T, M extends GenericMapper<T>> impleme
 
   @Override
   public List<T> findManyById(List<String> ids) {
+    if (ids == null) {
+      return null;
+    }
     String where = "id in (";
 
     return null;

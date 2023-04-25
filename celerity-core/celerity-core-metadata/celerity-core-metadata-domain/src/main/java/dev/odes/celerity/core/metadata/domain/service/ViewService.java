@@ -15,7 +15,7 @@ import java.util.List;
  * version: 1.0.0
  * description:
  */
-@Service
+@Service(value = "dev.odes.celerity.core.metadata.domain.service.ViewService")
 public class ViewService {
   private final ViewRepository viewRepository;
 

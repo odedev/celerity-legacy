@@ -6,7 +6,7 @@ import dev.odes.celerity.core.develop.domain.model.ViewModel;
 import dev.odes.celerity.core.develop.domain.repository.ViewRepository;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service(value = "dev.odes.celerity.core.develop.domain.service.ViewService")
 public class ViewService extends AbstractService<View, ViewModel, ViewRepository> {
   private final ViewRepository viewRepository;
 

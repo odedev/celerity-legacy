@@ -2,23 +2,27 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dev.odes.celerity.core.develop.infrastructure.mapper.ModuleMapper">
+<mapper namespace="dev.odes.celerity.core.develop.infrastructure.mapper.ViewMapper">
   <sql id="tableColumn">
-    `develop_module`.`id`,
-    `develop_module`.`code`,
-    `develop_module`.`name`,
-    `develop_module`.`description`,
-    `develop_module`.`module_type`,
-    `develop_module`.`persistence_type`,
-    `develop_module`.`remark`
+    `develop_view`.`id`,
+    `develop_view`.`code`,
+    `develop_view`.`name`,
+    `develop_view`.`path`,
+    `develop_view`.`serial_no`,
+    `develop_view`.`parent`,
+    `develop_view`.`module`,
+    `develop_view`.`is_menu`,
+    `develop_view`.`remark`
   </sql>
   <sql id="column">
     `id`,
     `code`,
     `name`,
-    `description`,
-    `module_type`,
-    `persistence_type`,
+    `path`,
+    `serial_no`,
+    `parent`,
+    `module`,
+    `is_menu`,
     `remark`
   </sql>
 
@@ -27,11 +31,11 @@
       `id`,
       <if test="code != null">`code`,</if>
       <if test="name != null">`name`,</if>
-      <if test="email != null">`email`,</if>
-      <if test="phone != null">`phone`,</if>
-      <if test="type != null">`type`,</if>
-      <if test="status != null">`status`,</if>
-      <if test="isAdmin != null">`is_admin`,</if>
+      <if test="path != null">`path`,</if>
+      <if test="serialNo != null">`serial_no`,</if>
+      <if test="parent != null">`parent`,</if>
+      <if test="module != null">`module`,</if>
+      <if test="isMenu != null">`is_menu`,</if>
     </trim>
   </sql>
   <sql id="insertValue">
@@ -39,23 +43,23 @@
       #{id},
       <if test="code != null">#{code},</if>
       <if test="name != null">#{name},</if>
-      <if test="email != null">#{email},</if>
-      <if test="phone != null">#{phone},</if>
-      <if test="type != null">#{type},</if>
-      <if test="status != null">#{status},</if>
-      <if test="isAdmin != null">#{isAdmin},</if>
+      <if test="path != null">#{path},</if>
+      <if test="serialNo != null">#{serialNo},</if>
+      <if test="parent != null">#{parent},</if>
+      <if test="module != null">#{module},</if>
+      <if test="isMenu != null">#{isMenu},</if>
     </trim>
   </sql>
   <sql id="insertEntityValue">
     <trim suffixOverrides=",">
-      #{user.id},
-      <if test="user.code != null">#{user.code},</if>
-      <if test="user.name != null">#{user.name},</if>
-      <if test="user.email != null">#{user.email},</if>
-      <if test="user.phone != null">#{user.phone},</if>
-      <if test="user.type != null">#{user.type},</if>
-      <if test="user.status != null">#{user.status},</if>
-      <if test="user.isAdmin != null">#{user.isAdmin},</if>
+      #{view.id},
+      <if test="view.code != null">#{view.code},</if>
+      <if test="view.name != null">#{view.name},</if>
+      <if test="view.path != null">#{view.path},</if>
+      <if test="view.serialNo != null">#{view.serialNo},</if>
+      <if test="view.parent != null">#{view.parent},</if>
+      <if test="view.module != null">#{view.module},</if>
+      <if test="view.isMenu != null">#{view.isMenu},</if>
     </trim>
   </sql>
 
@@ -63,22 +67,22 @@
     <trim prefix="set" suffixOverrides=",">
       <if test="code != null">`code` = #{code},</if>
       <if test="name != null">`name` = #{name},</if>
-      <if test="email != null">`email` = #{email},</if>
-      <if test="phone != null">`phone` = #{phone},</if>
-      <if test="type != null">`type` = #{type},</if>
-      <if test="status != null">`status` = #{status},</if>
-      <if test="isAdmin != null">`is_admin` = #{isAdmin},</if>
+      <if test="path != null">`path` = #{path},</if>
+      <if test="serialNo != null">`serial_no` = #{serialNo},</if>
+      <if test="parent != null">`parent` = #{parent},</if>
+      <if test="module != null">`module` = #{module},</if>
+      <if test="isMenu != null">`is_menu` = #{isMenu},</if>
     </trim>
   </sql>
   <sql id="updateEntityColumn">
     <trim prefix="set" suffixOverrides=",">
-      <if test="user.code != null">`code` = #{user.code},</if>
-      <if test="user.name != null">`name` = #{user.name},</if>
-      <if test="user.email != null">`email` = #{user.email},</if>
-      <if test="user.phone != null">`phone` = #{user.phone},</if>
-      <if test="user.type != null">`type` = #{user.type},</if>
-      <if test="user.status != null">`status` = #{user.status},</if>
-      <if test="user.isAdmin != null">`is_admin` = #{user.isAdmin},</if>
+      <if test="view.code != null">`code` = #{view.code},</if>
+      <if test="view.name != null">`name` = #{view.name},</if>
+      <if test="view.path != null">`path` = #{view.path},</if>
+      <if test="view.serialNo != null">`serial_no` = #{view.serialNo},</if>
+      <if test="view.parent != null">`parent` = #{view.parent},</if>
+      <if test="view.module != null">`module` = #{view.module},</if>
+      <if test="view.isMenu != null">`is_menu` = #{view.isMenu},</if>
     </trim>
   </sql>
 
@@ -89,25 +93,25 @@
   </sql>
   <sql id="deleteEntityColumn">
     <trim prefix="set" suffixOverrides=",">
-      <if test="user.deletedAt != null">`deleted_at` = #{user.deletedAt},</if>
+      <if test="view.deletedAt != null">`deleted_at` = #{view.deletedAt},</if>
     </trim>
   </sql>
 
-  <resultMap id="resultMap" type="dev.odes.celerity.core.develop.domain.entity.Module">
+  <resultMap id="resultMap" type="dev.odes.celerity.core.develop.domain.entity.View">
     <id property="id" column="id"/>
     <result property="code" column="code"/>
     <result property="name" column="name"/>
-    <result property="email" column="email"/>
-    <result property="phone" column="phone"/>
-    <result property="type" column="type"/>
-    <result property="status" column="status"/>
-    <result property="isAdmin" column="is_admin"/>
+    <result property="path" column="path"/>
+    <result property="serialNo" column="serial_no"/>
+    <result property="parent" column="parent"/>
+    <result property="module" column="module"/>
+    <result property="isMenu" column="is_menu"/>
   </resultMap>
 
-  <select id="findOne" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.Module">
+  <select id="findOne" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.View">
     SELECT
     <include refid="column"/>
-    FROM `develop_module`
+    FROM `develop_view`
 <!--    <if test="where != null and where != ''">-->
 <!--      <where>-->
 <!--        ${where}-->
@@ -128,10 +132,10 @@
     LIMIT 1
   </select>
 
-  <select id="findMany" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.Module">
+  <select id="findMany" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.View">
     SELECT
     <include refid="column"/>
-    FROM `develop_module`
+    FROM `develop_view`
     <if test="where != null and where != ''">
       <where>
         ${where}
@@ -145,15 +149,15 @@
         ORDER BY ${order}
       </when>
       <otherwise>
-        ORDER BY code
+        ORDER BY serial_no
       </otherwise>
     </choose>
   </select>
 
-  <select id="findAll" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.Module">
+  <select id="findAll" resultMap="resultMap" resultType="dev.odes.celerity.core.develop.domain.entity.View">
     SELECT
     <include refid="column"/>
-    FROM `develop_module`
+    FROM `develop_view`
     <if test="where != null and where != ''">
       <where>
         ${where}
@@ -167,53 +171,53 @@
         ORDER BY ${order}
       </when>
       <otherwise>
-        ORDER BY code
+        ORDER BY serial_no
       </otherwise>
     </choose>
   </select>
 
-  <insert id="insertOne" parameterType="dev.odes.celerity.core.develop.domain.entity.Module">
-    INSERT INTO `develop_module`
+  <insert id="insertOne" parameterType="dev.odes.celerity.core.develop.domain.entity.View">
+    INSERT INTO `develop_view`
     (<include refid="insertColumn"/>)
     VALUES
     (<include refid="insertValue"/>)
   </insert>
 
   <insert id="insertMany" parameterType="java.util.List">
-    INSERT INTO `develop_module`
+    INSERT INTO `develop_view`
     (<include refid="insertColumn"/>)
     VALUES
-        <foreach collection="list" item="user" separator=",">
+        <foreach collection="list" item="view" separator=",">
           (<include refid="insertEntityValue"/>)
         </foreach>
   </insert>
 
-  <update id="updateOne" parameterType="dev.odes.celerity.core.develop.domain.entity.Module">
-    UPDATE `develop_module`
+  <update id="updateOne" parameterType="dev.odes.celerity.core.develop.domain.entity.View">
+    UPDATE `develop_view`
     <include refid="updateColumn"/>
     WHERE id=#{id}
   </update>
 
 <!--  <update id="updateMany" parameterType="java.util.HashMap">-->
-<!--    UPDATE `user`-->
-<!--    <foreach collection="userList" item="user" separator=",">-->
+<!--    UPDATE `view`-->
+<!--    <foreach collection="viewList" item="view" separator=",">-->
 <!--      <include refid="updateColumn"/>-->
 <!--    </foreach>-->
 <!--    WHERE id=#{id} AND updated_count=#{updatedCount, jdbcType=INTEGER}-->
 <!--  </update>-->
 
   <update id="deleteOne">
-    UPDATE `develop_module`
+    UPDATE `develop_view`
     <include refid="deleteColumn"/>
     WHERE id=#{id}
   </update>
 
   <delete id="removeOne" parameterType="java.lang.String">
-    DELETE FROM `develop_module` WHERE id=#{id}
+    DELETE FROM `develop_view` WHERE id=#{id}
   </delete>
 
   <select id="count" resultType="java.lang.Integer">
-    SELECT COUNT(1) FROM `develop_module`
+    SELECT COUNT(1) FROM `develop_view`
     <if test="where != null and where != ''">
       ${where}
     </if>
@@ -221,7 +225,7 @@
   </select>
 
   <select id="exist" resultType="java.lang.Integer">
-    SELECT COUNT(1) FROM `develop_module`
+    SELECT COUNT(1) FROM `develop_view`
     <if test="where != null and where != ''">
       ${where}
     </if>
@@ -230,7 +234,7 @@
 
   <select id="findIndex" resultType="java.lang.Integer">
     SELECT num FROM (
-    SELECT D.id, (@row_number:=@row_number+1) as num FROM (SELECT `develop_module`.id FROM `develop_module`
+    SELECT D.id, (@row_number:=@row_number+1) as num FROM (SELECT `develop_view`.id FROM `develop_view`
     <if test="where != null and where != ''">
       ${where}
     </if>

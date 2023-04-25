@@ -6,8 +6,6 @@ import dev.odes.celerity.core.develop.domain.model.ModuleModel;
 import dev.odes.celerity.core.develop.domain.persistence.ModulePersistence;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  * package: dev.odes.celerity.core.develop.domain.repository
  * class: ModuleRepository

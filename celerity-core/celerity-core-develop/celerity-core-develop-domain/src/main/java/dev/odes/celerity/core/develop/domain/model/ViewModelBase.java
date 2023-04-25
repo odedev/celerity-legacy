@@ -9,9 +9,9 @@ public class ViewModelBase extends AbstractModel<View> {
   private String name;
   private String path;
   private Integer serialNo;
+  private Boolean isMenu;
   private ViewModel parent;
   private ModuleModel module;
-  private Boolean isMenu;
 
   @Override
   public String getId() {
@@ -55,12 +55,30 @@ public class ViewModelBase extends AbstractModel<View> {
     this.serialNo = serialNo;
   }
 
+  public Boolean getIsMenu() {
+    return isMenu;
+  }
+
+  public void setIsMenu(Boolean menu) {
+    isMenu = menu;
+  }
+
   public ViewModel getParent() {
     return parent;
   }
 
   public void setParent(ViewModel parent) {
     this.parent = parent;
+  }
+
+  public void setParent(String parent) {
+    if (parent == null) {
+      this.parent = null;
+    } else {
+      ViewModel viewModel = new ViewModel();
+      viewModel.setId(parent);
+      this.parent = viewModel;
+    }
   }
 
   public ModuleModel getModule() {
@@ -72,22 +90,29 @@ public class ViewModelBase extends AbstractModel<View> {
   }
 
   public void setModule(String moduleId) {
-    ModuleModel module = new ModuleModel();
-    module.setId(moduleId);
-    this.module = module;
-  }
-
-  public Boolean getIsMenu() {
-    return isMenu;
-  }
-
-  public void setIsMenu(Boolean menu) {
-    isMenu = menu;
+    if (moduleId == null) {
+      this.module = null;
+    } else {
+      ModuleModel module = new ModuleModel();
+      module.setId(moduleId);
+      this.module = module;
+    }
   }
 
   @Override
   public void fromEntity(View view) {
+    if (view == null) {
+      return;
+    }
+    this.setId(view.getId());
+    this.setCode(view.getCode());
+    this.setName(view.getName());
+    this.setPath(view.getPath());
+    this.setSerialNo(view.getSerialNo());
+    this.setIsMenu(view.getIsMenu());
     this.setModule(view.getId());
+    this.setParent(view.getParent());
+    this.setModule(view.getModule());
   }
 
   @Override

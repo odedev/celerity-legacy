@@ -15,8 +15,6 @@
 CREATE DATABASE IF NOT EXISTS `celerity` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-
-+ alacrity: 欣然;欣然同意;十分乐意. 英语单词，主要用作名词，作名词时译为“敏捷；轻快；乐意”。
 + dexterity: 灵巧;(手)熟练;(思维)敏捷;灵活
 + rapid: 迅速的;快速的;瞬间的;短时间内发生的;快捷的
 

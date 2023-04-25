@@ -8,6 +8,7 @@ import dev.odes.celerity.common.repository.AbstractRepository;
 import dev.odes.celerity.common.response.ResponseData;
 import dev.odes.celerity.common.service.AbstractService;
 import org.springframework.http.MediaType;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -69,6 +70,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData insertOne(@RequestBody M m) {
     M one = this.service.insertOne(m);
@@ -76,6 +78,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @PostMapping(path = "/insert", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData insertMany(@RequestBody List<M> list) {
     List<M> many = this.service.insertMany(list);
@@ -83,6 +86,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @PutMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData updateOne(@RequestBody M m) {
     M one = this.service.updateOne(m);
@@ -90,6 +94,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @PutMapping(path = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData updateMany(@RequestBody List<M> list) {
     List<M> many = this.service.updateMany(list);
@@ -97,6 +102,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @PatchMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData deleteOne(@RequestBody M m) {
     M one = this.service.deleteOne(m);
@@ -104,6 +110,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @PatchMapping(path = "/delete", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData deleteMany(@RequestBody List<M> list) {
     List<M> many = this.service.deleteMany(list);
@@ -111,6 +118,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @DeleteMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData removeOne(@RequestBody M m) {
     M one = this.service.removeOne(m);
@@ -118,6 +126,7 @@ public abstract class AbstractController<E extends AbstractEntity, M extends Abs
   }
 
   @Override
+  @Transactional
   @DeleteMapping(path = "/remove", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseData removeMany(@RequestBody List<M> list) {
     List<M> many = this.service.removeMany(list);

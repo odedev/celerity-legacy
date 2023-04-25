@@ -3,16 +3,16 @@ package dev.odes.celerity.core.metadata.infrastructure;
 
 import dev.odes.celerity.core.metadata.domain.entity.View;
 import dev.odes.celerity.core.metadata.domain.persistence.ViewPersistence;
-import dev.odes.celerity.core.metadata.infrastructure.mapper.ViewMapper;
+import dev.odes.celerity.core.metadata.infrastructure.mapper.ViewsMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public class ViewPersistenceMybatis implements ViewPersistence {
-  private final ViewMapper viewMapper;
+  private final ViewsMapper viewMapper;
 
-  public ViewPersistenceMybatis(ViewMapper viewMapper) {
+  public ViewPersistenceMybatis(ViewsMapper viewMapper) {
     this.viewMapper = viewMapper;
   }
 

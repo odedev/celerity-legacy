@@ -13,7 +13,7 @@ import java.util.List;
  * version: 1.0.0
  * description:
  */
-@Repository
+@Repository(value = "dev.odes.celerity.core.metadata.domain.repository.ViewRepository")
 public class ViewRepository {
   private final ViewPersistence viewPersistence;
 

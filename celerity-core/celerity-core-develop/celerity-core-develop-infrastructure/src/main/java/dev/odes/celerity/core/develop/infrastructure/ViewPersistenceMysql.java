@@ -6,7 +6,7 @@ import dev.odes.celerity.core.develop.infrastructure.mapper.ViewMapper;
 import dev.odes.celerity.persistence.mysql.AbstractPersistence;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository(value = "dev.odes.celerity.core.develop.infrastructure.ViewPersistenceMysql")
 public class ViewPersistenceMysql extends AbstractPersistence<View, ViewMapper> implements ViewPersistence {
   private final ViewMapper viewMapper;
 

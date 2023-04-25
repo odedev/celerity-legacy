@@ -14,7 +14,7 @@ import java.util.List;
  * description:
  */
 @Mapper
-public interface ViewMapper {
+public interface ViewsMapper {
   public View findOne(@Param("where") String where, String order);
 
   public List<View> findMany(@Param("where") String where, String order);

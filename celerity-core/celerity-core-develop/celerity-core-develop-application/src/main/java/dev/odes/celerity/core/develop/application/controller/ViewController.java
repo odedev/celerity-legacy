@@ -9,7 +9,7 @@ import dev.odes.celerity.core.develop.domain.service.ViewService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController(value = "dev.odes.celerity.core.develop.application.controller.ViewController")
 @RequestMapping(path = "/develop/view")
 public class ViewController extends AbstractController<View, ViewModel, ViewPersistence, ViewRepository, ViewService> {
   private final ViewService viewService;
