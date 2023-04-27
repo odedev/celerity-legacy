@@ -37,6 +37,26 @@ services:
     user: root
     command: --default-authentication-plugin=mysql_native_password
 
+  orientdb:
+    image: orientdb:3.2.18
+    environment:
+      ORIENTDB_ROOT_PASSWORD: "root"
+      ORIENTDB_NODE_NAME: "odb1"
+    volumes:
+      - ./orientdb/config:/orientdb/config
+      - ./orientdb/data:/orientdb/databases
+      - ./orientdb/backup:/orientdb/backup
+    ports:
+      - "2424:2424"
+      - "2480:2480"
+    hostname: orientdb
+    networks:
+      - store
+    privileged: true
+    restart: always
+    user: root
+    command: /orientdb/bin/server.sh -Xmx8g -Ddistributed=true
+
 networks:
   store:
     ipam:

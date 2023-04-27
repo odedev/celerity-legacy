@@ -1,0 +1,4 @@
+<properties>
+  <entry name="cache.size" value="10000" />
+  <entry name="storage.keepOpen" value="true" />
+</properties>
