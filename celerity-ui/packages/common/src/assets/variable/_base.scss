@@ -43,9 +43,10 @@ $on-error: #FFFFFF;
 $on-warn: #FFFFFF;
 $on-success: #FFFFFF;
 
-// primary: 主题色. 数字100-99-95-90-80-70-60-50-40-30-20-10-0,表示颜色由浅到深;
-// primary 中取色对应的数字为: primary(40), primary-container(90), on-primary-container(10), tertiary(95)
-// $tertiary: 主要用于 选中, 高亮背景色, 可使用和 primary 同色系的浅色(或浅蓝色), tertiary(95)
+// 单色系: 数字100-99-95-90-80-70-60-50-40-30-20-10-0,表示颜色由浅到深;
+// primary 主题色. 取色对应的数字为: primary(40), primary-container(90), on-primary-container(10), secondary(60), tertiary(95)
+// $secondary: 主要用于 选中, 高亮 文本颜色, 可使用和 primary 同色系的浅色(或主题色), primary(60)
+// $tertiary: 主要用于 选中, 高亮背景色, 可使用和 primary 同色系的浅色(或浅蓝色), primary(95)
 // $error: 错误
 // $neutral: 中性的
 // $background: 背景
@@ -53,6 +54,13 @@ $on-success: #FFFFFF;
 // $surface-variant: 表面变体, 可用于禁用态
 // $outline: 轮廓线
 // $overlay: 套图透明膜; 覆盖物
+
+// 多色系
+// primary: 主题色. 数字100-99-95-90-80-70-60-50-40-30-20-10-0,表示颜色由浅到深;
+// primary 中取色对应的数字为: primary(40), primary-container(90), on-primary-container(10), secondary(60), tertiary(95)
+// $secondary: 主要用于 选中, 高亮 文本颜色, 可使用和 primary 同色系的浅色(或其他色系), primary(60)
+// $tertiary: 主要用于 选中, 高亮背景色, 可使用和 primary 同色系的浅色(或其他色系), primary(95)
+// $primary-container: 主要用于 背景色, 可使用和 primary 同色系的浅色, primary(90)
 
 
 $padding: 16px;
