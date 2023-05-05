@@ -1,6 +1,8 @@
 package dev.odes.celerity.common.model;
 
 public interface Model<E> {
+
+  // service 有用到
   String getId();
   void setId(String id);
 
