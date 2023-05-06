@@ -9,3 +9,12 @@
 
 ## entity 和 model 的使用
 entity 使用在 repository 和 persistent， model 使用在 repository 和 service, 在 repository 中将 entity 转为 model
+
+## MySQL 字符集
+utf8mb4_bin 将字符串中的每一个字符用二进制数据存储，区分大小写。
+
+utf8mb4_unicode_ci不区分大小写，ci为case insensitive的缩写，即大小写不敏感。
+
+utf8_genera_ci不区分大小写，ci为case insensitive的缩写，即大小写不敏感。
+
+utf8_general_cs区分大小写，cs为case sensitive的缩写，即大小写敏感。
