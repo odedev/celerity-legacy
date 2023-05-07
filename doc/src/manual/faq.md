@@ -10,6 +10,9 @@
 ## entity 和 model 的使用
 entity 使用在 repository 和 persistent， model 使用在 repository 和 service, 在 repository 中将 entity 转为 model
 
+## Transform
+Entity 和 Model 之间的转换, 如果字段出现变动, 添加此层可以避免对 service 或 repository 修改.
+
 ## MySQL 字符集
 utf8mb4_bin 将字符串中的每一个字符用二进制数据存储，区分大小写。
 
