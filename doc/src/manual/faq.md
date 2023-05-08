@@ -21,3 +21,16 @@ utf8mb4_unicode_ci不区分大小写，ci为case insensitive的缩写，即大�
 utf8_genera_ci不区分大小写，ci为case insensitive的缩写，即大小写不敏感。
 
 utf8_general_cs区分大小写，cs为case sensitive的缩写，即大小写敏感。
+
+
+## Idea类注释模板
+File---Settings---Editor---File and Code Templates--- Includes
+```
+/**
+ * package: ${PACKAGE_NAME}
+ * class: ${NAME}
+ * date: ${DATE} ${TIME}
+ * version: 1.0.0
+ * description:
+ */
+```
