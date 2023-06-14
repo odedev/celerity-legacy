@@ -3,10 +3,13 @@
 
 ## 参考
 + [Apache Velocity](https://velocity.apache.org/)
-+ [HSQLDB](http://hsqldb.org/)
-+ [Couchbase](https://www.couchbase.com/)
 + [MyBatis](https://mybatis.org/mybatis-3/index.html)
 + [MyBatis](https://github.com/mybatis/mybatis-3)
++ [Couchbase](https://www.couchbase.com/)
++ [HSQLDB](http://hsqldb.org/)
++ [Caffeine](https://github.com/ben-manes/caffeine)
++ [LMAX Disruptor](https://github.com/LMAX-Exchange/disruptor)
++ [OkHttp](https://github.com/square/okhttp)
 + [vue](https://vuejs.org/)
 
 
