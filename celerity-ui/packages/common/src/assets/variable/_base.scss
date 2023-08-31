@@ -16,6 +16,7 @@ $primary-container: #EADDFF; // primary-90
 
 //$neutral: #757575;
 $neutral: #C7C7C7;
+$neutral: #E6E1E5;
 
 $error: #DC362E;
 $warn: #FF9800;
@@ -61,6 +62,10 @@ $on-success: #FFFFFF;
 // $secondary: 主要用于 选中, 高亮 文本颜色, 可使用和 primary 同色系的浅色(或其他色系), primary(60)
 // $tertiary: 主要用于 选中, 高亮背景色, 可使用和 primary 同色系的浅色(或其他色系), primary(95)
 // $primary-container: 主要用于 背景色, 可使用和 primary 同色系的浅色, primary(90)
+
+// Primary(Purple) Luminance:
+  // 100 - #FFFFFF, 99 - #FFFBFE, 95 - #F6EDFF, 90 - #EADDFF, 80 - #D0BCFF, 70 - #B69DF8, 60 - #9A82DB,
+  // 50 - #7F67BE, 40 - #6750A4, 30 - #4F378B, 20 - #381E72, 10 - #21005D, 0 - #000000
 
 
 $padding: 16px;
