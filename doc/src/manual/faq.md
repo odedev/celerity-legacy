@@ -41,3 +41,49 @@ uft8mb4 表示用 UTF-8 编码方案，每个字符最多占 4 个字节。<br>
 ci 表示不区分大小写。也就是说，排序时 p 和 P 之间没有区别。<br>
 utf8mb4 已成为默认字符集，在 MySQL 8.0.1 及更高版本中将 utf8mb4_0900_ai_ci 作为默认排序规则。以前，utf8mb4_general_ci 是默认排序规则。由于 utf8mb4_0900_ai_ci 排序规则现在是默认排序规则，因此默认情况下新表格可以存储基本多语言平面之外的字符。现在可以默认存储表情符号。如果需要重音灵敏度和区分大小写，则可以使用 utf8mb4_0900_as_cs 代替。</p> 
 </blockquote>
+
+
+
+## Idea类注释模板
+File---Settings---Editor---File and Code Templates--- Includes
+```
+/**
+ * package: ${PACKAGE_NAME}
+ * class: ${NAME}
+ * date: ${DATE} ${TIME}
+ * version: 1.0.0
+ * description:
+ */
+```
+
+
+## 循环依赖
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-29T23:35:15.050+08:00 ERROR 12200 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   :
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   generatorController defined in file [D:\develop\java\fleet\fleet-develop\target\classes\dev\odes\fleet\develop\controller\GeneratorController.class]
+      ↓
+   generatorService defined in file [D:\develop\java\fleet\fleet-develop\target\classes\dev\odes\fleet\develop\service\GeneratorService.class]
+┌─────┐
+|  modelService defined in file [D:\develop\java\fleet\fleet-develop\target\classes\dev\odes\fleet\develop\service\ModelService.class]
+↑     ↓
+|  modelTransform defined in file [D:\develop\java\fleet\fleet-develop\target\classes\dev\odes\fleet\develop\transform\ModelTransform.class]
+↑     ↓
+|  modelFieldService defined in file [D:\develop\java\fleet\fleet-develop\target\classes\dev\odes\fleet\develop\service\ModelFieldService.class]
+↑     ↓
+|  modelFieldTransform defined in file [D:\develop\java\fleet\fleet-develop\target\classes\dev\odes\fleet\develop\transform\ModelFieldTransform.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
